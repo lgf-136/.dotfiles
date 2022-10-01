@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "steoates.autoimport",
+    "formulahendry.code-runner",
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
+    "dariofuzinato.vue-peek",
+    "sdras.vue-vscode-snippets",
+    "xabikos.reactsnippets",
+    "vscode-icons-team.vscode-icons",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "ritwickdey.liveserver",
+    "formulahendry.auto-rename-tag",
+    "naumovs.color-highlight",
+    "shardulm94.trailing-spaces",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}
