@@ -11,6 +11,8 @@ alias gcob="git checkout -b"
 alias gcom="git checkout main"
 alias gst="git status"
 
+alias ep='explorer.exe .'
+
 # Navigation
 # alias -='cd -' # FIXME: bad option: -=
 alias ~="cd ~"
