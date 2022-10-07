@@ -78,9 +78,10 @@ plugins=(docker docker-compose python npm zsh-autosuggestions zsh-syntax-highlig
 
 source $ZSH/oh-my-zsh.sh
 
-source ../.alias.sh
-source ../.exports.sh
-source ../.functions.sh
+source .alias.sh
+source .exports.sh
+source .functions.sh
+# source ../.functions.sh  使用..的话提示找不到路径
 
 # User configuration
 

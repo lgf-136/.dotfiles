@@ -10,3 +10,5 @@
 [user]
     name = lgf
     email = lgf_136@163.com
+[core]
+	autocrlf = false
