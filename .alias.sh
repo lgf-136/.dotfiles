@@ -12,7 +12,7 @@ alias gcom="git checkout main"
 alias gst="git status"
 
 # Navigation
-alias -='cd -'
+# alias -='cd -' # FIXME: bad option: -=
 alias ~="cd ~"
 alias ..='cd ..'
 alias ...='cd ../..'
