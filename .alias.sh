@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. ./common.sh
+. ~/common.sh
 
 # git
 alias ga="git add ."
