@@ -1,0 +1,12 @@
+[safe]
+    directory = /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[http]
+	sslverify = false
+[user]
+    name = lgf
+    email = lgf_136@163.com
