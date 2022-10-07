@@ -1,3 +1,5 @@
+[init]
+	defaultBranch = main
 [safe]
     directory = /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
 [filter "lfs"]
