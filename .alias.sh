@@ -11,8 +11,6 @@ alias gcob="git checkout -b"
 alias gcom="git checkout main"
 alias gst="git status"
 
-alias ep='explorer.exe .'
-
 # Navigation
 # alias -='cd -' # FIXME: bad option: -=
 alias ~="cd ~"
@@ -30,3 +28,7 @@ alias 4='cd -4'
 alias 5='cd -5'
 alias ll='ls -lh'
 alias la='ls -lha'
+alias dev='cd /home/lgf/code'
+alias lgf='cd /home/lgf'
+alias cu='su - lgf'
+alias cr='su -root'
