@@ -32,3 +32,5 @@ alias dev='cd /home/lgf/code'
 alias lgf='cd /home/lgf'
 alias cu='su - lgf'
 alias cr='su -root'
+
+alias ep='explorer.exe .'
