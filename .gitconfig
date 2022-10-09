@@ -17,3 +17,47 @@
     email = lgf_136@163.com
 [core]
 	autocrlf = false
+
+[alias]
+	co = checkout
+	cob = checkout -b
+	coo = !git fetch && git checkout
+	br = branch
+	brd = branch -d
+	st = status
+	aa = add -A .
+	unstage = reset --soft HEAD^
+	cm = commit -m
+	amend = commit --amend -m
+	fix = commit --fixup
+	undo = reset HEAD~1
+	rv = revert
+	cp = cherry-pick
+	pu = !git push origin `git branch --show-current`
+	fush = push -f
+	mg = merge --no-ff
+	rb = rebase
+	rbc = rebase --continue
+	rba = rebase --abort
+	rbs = rebase --skip
+	rom = !git fetch && git rebase -i origin/master --autosquash
+	save = stash push
+	pop = stash pop
+	apply = stash apply
+	rl = reflog
+	# Git Commit, Add all and Push — in one step.
+	cap = "!f() { git add .; git commit -m \"$@\"; git push; }; f"
+	# NEW.
+	feat = "!f() { git cap \"✏️ feat: $@\"; }; f"
+	# IMPROVE.
+	imp = "!f() { git cap \"📈 improve: $@\"; }; f"
+	# FIX.
+	fix = "!f() { git cap \"🔧 fix: $@\"; }; f"
+	# RELEASE.
+	rls = "!f() { git cap \"🚀 release: $@\"; }; f"
+	# DOC.
+	doc = "!f() { git cap \"📑 doc: $@\"; }; f"
+	# TEST.
+	test = "!f() { git cap \"✅ test: $@\"; }; f"
+	# CHORE.
+	chore = "!f() { git cap \"📌 chore: $@\"; }; f"

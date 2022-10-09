@@ -9,43 +9,44 @@ Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function MenuComplete
 Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
+
 Function oms
 {
-Invoke-Expression (& 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' init powershell --print-full-init | Out-String)
+    Invoke-Expression (& 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' init powershell --print-full-init | Out-String)
 }
 Function omp
 {
-oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\clean-detailed.omp.json | Invoke-Expression
+    oh-my-posh --init --shell pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\clean-detailed.omp.json | Invoke-Expression
 }
 Function zz
 {
-Import-Module ZLocation
+    Import-Module ZLocation
 }
 Function lgf
 {
-cd C:\Users\13662
+    cd C:\Users\13662
 }
 Function dl
 {
-cd C:\Users\13662\Downloads
+    cd C:\Users\13662\Downloads
 }
 Function dt
 {
-cd C:\Users\13662\Desktop
+    cd C:\Users\13662\Desktop
 }
 Function od
 {
-cd C:\Users\13662\OneDrive
+    cd C:\Users\13662\OneDrive
 }
 Function ap
 {
-cd C:\Users\13662\AppData
+    cd C:\Users\13662\AppData
 }
 
 # 利用域名无需魔法访问cloudflare workers(重新实现github加速) https://www.kejiwanjia.com/jiaocheng/105320.html
 Function gh-proxy($url='')
 {
-git clone  http://gitproxy.ml/$url
+    git clone  http://gitproxy.ml/$url
 }
 
 function pi()
