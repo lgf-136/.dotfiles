@@ -55,6 +55,7 @@
 	pop = stash pop
 	apply = stash apply
 	rl = reflog
+	
 	# Git Commit, Add all and Push — in one step.
 	cap = "!f() { git add .; git commit -m \"$@\"; git push; }; f"
 	# NEW.
