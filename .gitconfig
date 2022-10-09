@@ -5,6 +5,16 @@
 	directory = /home/lgf/code
 	directory = /home/lgf/code/system-init
 	directory = /home/lgf/code/common/.dotfiles
+	directory = /home/lgf/code/system-init
+	directory = /home/lgf/code/system-init/.dotfiles
+	directory = /home/lgf/code/common/.devcontainer
+	directory = /home/lgf/dev-env
+	directory = /home/lgf/dev-env/docker
+	directory = /home/lgf/code/templates/vite/vite-react-ts
+	directory = /home/lgf/code/common/.vscode
+	directory = /home/lgf/code/common/config
+	directory = /home/lgf/code/projects/references/todomvc-apps
+	directory = /home/lgf/code/projects/references/react-typescript-todomvc-2022
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
