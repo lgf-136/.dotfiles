@@ -157,3 +157,44 @@ function pid()
         npm list
     }
 }
+
+# git emojis
+
+function gcap() {
+    git add . && git commit -m "$args" && git push
+}
+
+# FEAT.
+function gfeat() {
+    gcap "✏️ feat: $args"
+}
+
+# IMPROVE.
+function gimp() {
+    gcap "📈 improve: $args"
+}
+
+# FIX.
+function gfix() {
+    gcap "🔧 fix: $args"
+}
+
+# RELEASE.
+function grls() {
+    gcap "🚀 release: $args"
+}
+
+# DOC.
+function gdoc() {
+    gcap "📑 doc: $args"
+}
+
+# TEST.
+function gtst() {
+    gcap "✅ test: $args"
+}
+
+# CHORE.
+function gchore() {
+    gcap "📌 chore: $args"
+}

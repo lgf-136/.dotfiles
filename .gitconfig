@@ -59,7 +59,7 @@
 	# Emoji-Log：编写 Git 提交信息的新方法: https://cubox.pro/my/card?id=ff8080818381afe80183baad56c02b2b
 	# Git Commit, Add all and Push — in one step.
 	cap = "!f() { git add .; git commit -m \"$@\"; git push; }; f"
-	# NEW.
+	# FEAT.
 	feat = "!f() { git cap \"✏️ feat: $@\"; }; f"
 	# IMPROVE.
 	imp = "!f() { git cap \"📈 improve: $@\"; }; f"
