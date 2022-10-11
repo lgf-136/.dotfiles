@@ -161,7 +161,9 @@ function pid()
 # git emojis
 
 function gcap() {
-    git add . && git commit -m "$args" && git push
+    # BUG:  标记“&&”不是此版本中的有效语句分隔符。
+    # git add . && git commit -m "$*" && git push
+    git add . ; git commit -m "$*" ; git push
 }
 
 # FEAT.
