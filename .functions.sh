@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 . ~/.common.sh
 
@@ -63,11 +63,11 @@ download_font () {
     fi
     if [[ -f "$path" ]]
     then
-        success "Downloaded $1"
+        info "Downloaded $1"
     else
         info "Downloading $1"
         curl -s -o "$path" "$url"
-        success "Downloaded $1"
+        info "Downloaded $1"
     fi
 }
 
@@ -83,7 +83,7 @@ install_fonts () {
         done
     # download_font "DejaVu Sans Mono Bold Oblique for Powerline.ttf"
     info "Updating font cache, please wait ..."
-    if [ $System = "Darwin" ];then
+    if [ $distribution = "Darwin" ];then
         if [ ! -e "$HOME/Library/Fonts" ];then
             mkdir "$HOME/Library/Fonts"
         fi
@@ -93,5 +93,5 @@ install_fonts () {
         mkfontdir "$HOME/.local/share/fonts" > /dev/null
         mkfontscale "$HOME/.local/share/fonts" > /dev/null
     fi
-    success "font cache done!"
+    info "font cache done!"
 }

@@ -2,4 +2,4 @@
 
 . ~/.common.sh
 
-export PATH=$PATH:/mnt/c/Windows:/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin
+export PATH=$PATH:/bin:/usr/bin:/usr/local/bin:/mnt/c/Windows:/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin
