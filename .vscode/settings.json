@@ -62,7 +62,7 @@
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
   // "[less]": {
   //   "editor.defaultFormatter": "stylelint.vscode-stylelint"
   // },
@@ -72,4 +72,10 @@
   // "[scss]": {
   //   "editor.defaultFormatter": "stylelint.vscode-stylelint"
   // }
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true
+  }
 }
