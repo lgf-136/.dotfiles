@@ -74,14 +74,14 @@ end
 --------------------linux platform--------------------------------
 if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
     ssh_cmd = {"zsh", "ssh"}
-    table.insert(config.launch_menu, { label = "zsh", args = { "zsh", "-l" } })
-    table.insert(config.launch_menu, { label = "bash", args = { "bash", "-l" } })
+    table.insert(launch_menu, { label = "zsh", args = { "zsh", "-l" } })
+    table.insert(launch_menu, { label = "bash", args = { "bash", "-l" } })
 end
 --------------------macos platform--------------------------------
 if wezterm.target_triple == "x86_64-apple-darwin" then
     ssh_cmd = {"zsh", "ssh"}
-    table.insert(config.launch_menu, { label = "zsh", args = { "zsh", "-l" } })
-    table.insert(config.launch_menu, { label = "bash", args = { "bash", "-l" } })
+    table.insert(launch_menu, { label = "zsh", args = { "zsh", "-l" } })
+    table.insert(launch_menu, { label = "bash", args = { "bash", "-l" } })
 end
 local ssh_config_file = wezterm.home_dir .. "/.ssh/config"
 local f = io.open(ssh_config_file)
@@ -125,13 +125,24 @@ local mouse_bindings = {
 
 }
 
+-- a > b and a or b
+-- local default_prog = {"zsh"}
+-- local default_prog = (wezterm.target_triple == "x86_64-unknown-linux-gnu") and {"pwsh.exe"} or {"zsh"}
 
+-- (a and {b} or {c})[1]
+local is_windows = 2
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+	is_windows = 1
+end
+local default_shell = {"pwsh.exe","zsh"}
+local default_prog = {default_shell[is_windows]}
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   local edge_background = "#121212"
   local background = "#4E4E4E"
   local foreground = "#1C1B19"
   local dim_foreground = "#3A3A3A"
+
 
   if tab.is_active then
 	background = "#FBB829"
@@ -147,6 +158,16 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   local exec_name = basename(process_name):gsub("%.exe$", "")
   local title_with_icon
 
+  local cmd = "echo $0"
+-- print(cmd)
+
+  local function excute_cmd(cmd)
+    local t = io.popen(cmd)
+	local ret = t:read("*all")
+	return ret
+  end
+  local shell = excute_cmd(cmd)
+
   if exec_name == "nu" then
 	title_with_icon = NU_ICON .. " NuShell"
   elseif exec_name == "pwsh" then
@@ -159,6 +180,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	title_with_icon = ELV_ICON .. " Elvish"
   elseif exec_name == "wsl" or exec_name == "wslhost" then
 	title_with_icon = WSL_ICON .. " WSL"
+  elseif exec_name == "zsh" then
+	title_with_icon = WSL_ICON .. " zsh"
   elseif exec_name == "nyagos" then
 	title_with_icon = NYA_ICON .. " " .. pane_title:gsub(".*: (.+) %- .+", "%1")
   elseif exec_name == "yori" then
@@ -180,7 +203,10 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   elseif exec_name == "bb" or exec_name == "cmd-clj" or exec_name == "janet" or exec_name == "hy" then
 	title_with_icon = LAMBDA_ICON .. " " .. exec_name:gsub("bb", "Babashka"):gsub("cmd%-clj", "Clojure")
   else
-	title_with_icon = HOURGLASS_ICON .. " " .. exec_name
+	-- title_with_icon = HOURGLASS_ICON .. " " .. exec_name
+	title_with_icon = WSL_ICON .. " " .. exec_name .. shell
+	-- FIXME: 不能获取shell显示在tab中，windows没有任何问题
+	-- 【Lua / Shell】 Lua 通过 Shell 调用 top 命令获取 CPU/内存 等系统性能信息 : https://blog.csdn.net/ls9512/article/details/80569998
   end
   if pane_title:match("^Administrator: ") then
 	title_with_icon = title_with_icon .. " " .. ADMIN_ICON
@@ -225,7 +251,6 @@ wezterm.on(
 	end
 )
 
-local default_prog = {"pwsh.exe"}
 
 return {
 	set_environment_variables = {
@@ -237,12 +262,14 @@ return {
 	mouse_bindings = mouse_bindings,
 	disable_default_key_bindings = true,
 	default_prog = default_prog,
+	font = wezterm.font("Monospace"),
 	-- font = wezterm.font("Fira Code"),
-    font = wezterm.font_with_fallback({
-		"FiraCode Nerd Font",
-        "Cascadia Code",
-        "Fira Code",
-    }),
+    -- font = wezterm.font_with_fallback({
+	-- 	"FiraCode Nerd Font",
+    --     "Cascadia Code",
+    --     "Fira Code",
+	-- 	"Monospace"
+    -- }),
   colors = {
 	  tab_bar = {
 		  background = TAB_BAR_BG,

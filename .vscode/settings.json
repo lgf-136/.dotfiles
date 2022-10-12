@@ -1,7 +1,7 @@
 {
   "editor.fontFamily": "'Fira Code', 'Cascadia Code',Consolas, 'Courier New', monospace",
-  "debug.console.fontFamily": "Hack Nerd Font",
-  "terminal.integrated.fontFamily": "Hack Nerd Font",
+  "debug.console.fontFamily": "Hack Nerd Font,Consolas, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "Hack Nerd Font,Consolas, 'Courier New', monospace",
   "editor.fontSize": 16,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "prettier.enable": false,
