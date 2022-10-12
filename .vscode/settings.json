@@ -1,8 +1,173 @@
 {
-  "editor.fontFamily": "'Fira Code', 'Cascadia Code',Consolas, 'Courier New', monospace",
-  "debug.console.fontFamily": "Hack Nerd Font,Consolas, 'Courier New', monospace",
-  "terminal.integrated.fontFamily": "Hack Nerd Font,Consolas, 'Courier New', monospace",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.trustedDomains.promptInTrustedWorkspace": true,
+  "projectManager.git.baseFolders": [
+    "~/code",
+    "~/projects",
+    "E:\\code",
+    "/mnt/c/User/13662/code",
+    "/mnt/c/User/lgf/code",
+    "/mnt/c/User/13662/Desktop/code",
+    "/mnt/c/User/lgf/Desktop/code",
+    "~/Desktop/code",
+    "~/Desktop/projects"
+  ],
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.iconTheme": "material-icon-theme",
   "editor.fontSize": 16,
+  "editor.fontFamily": "'Fira Code', 'Cascadia Code',Consolas, 'Courier New', monospace",
+  "debug.console.fontFamily": "'Hack Nerd Font','Fira Code', 'Cascadia Code',Consolas, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "'Hack Nerd Font','Fira Code', 'Cascadia Code',Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true, // 是否启用字体连字
+  "editor.fontWeight": "normal",
+  "files.autoSave": "afterDelay",
+  "files.autoGuessEncoding": true,
+  "workbench.list.smoothScrolling": true,
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.mouseWheelZoom": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.wordWrap": "on",
+  "editor.guides.bracketPairs": true,
+  //"editor.bracketPairColorization.enabled": true, (此设置vscode在较新版本已默认开启)
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.suggestSelection": "recentlyUsed",
+  "window.dialogStyle": "custom",
+  "debug.showBreakpointsInOverviewRuler": true,
+  "terminal.integrated.enableMultiLinePasteWarning": true,
+  "todo-tree.tree.showScanModeButton": true,
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/*",
+    "**/public/**",
+    "**/src/assets/**"
+  ],
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.tree.showCountsInTree": true,
+  "todohighlight.isEnable": true,
+  "todo-tree.highlights.customHighlight": {
+    "BUG": {
+      "icon": "bug",
+      "foreground": "#F56C6C",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "FIX": {
+      "icon": "flame",
+      "foreground": "#FF9800",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "FIXIT": {
+      "icon": "flame",
+      "foreground": "#FF9800",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "FIXME": {
+      "icon": "flame",
+      "foreground": "#FF9800",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "TODO": {
+      "foreground": "#FFEB38",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "[] ": {
+      "foreground": "#FFEB38",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "[x] ": {
+      "foreground": "#FFEB38",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "- [] ": {
+      "foreground": "#FFEB38",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "- [x] ": {
+      "foreground": "#FFEB38",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "NOTE": {
+      "icon": "note",
+      "foreground": "#67C23A",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "INFO": {
+      "icon": "info",
+      "foreground": "#909399",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "TAG": {
+      "icon": "tag",
+      "foreground": "#409EFF",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "HACK": {
+      "icon": "versions",
+      "foreground": "#E040FB",
+      "type": "line",
+      "gutterIcon": true
+    },
+    "XXX": {
+      "icon": "unverified",
+      "foreground": "#E91E63",
+      // "background": "#ffffff",
+      "type": "line",
+      "gutterIcon": true
+    }
+  },
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIX",
+    "FIXIT",
+    "FIXME",
+    "TODO",
+    "[] ",
+    "[x] ",
+    "- [] ",
+    "- [x] ",
+    "INFO",
+    "NOTE",
+    "TAG",
+    "XXX"
+  ],
+  "todo-tree.general.tagGroups": {
+    "FIX": [
+      "FIXME",
+      "FIXIT",
+      "FIX",
+    ],
+    "TODO": [
+      "TODO",
+      "[] ",
+      "[x] ",
+      "- [] ",
+      "- [x] ",
+    ]
+  },
+  "todo-tree.general.statusBar": "tags",
+  "todo-tree.regex.regexCaseSensitive": false,
+  "todo-tree.general.enableFileWatcher": true,
+  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "git.autofetch": true,
+  "files.eol": "\n",
+  "explorer.confirmDragAndDrop": false,
+  "window.commandCenter": true,
+  "editor.stickyScroll.enabled": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "prettier.enable": false,
   "editor.formatOnSave": true,

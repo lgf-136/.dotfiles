@@ -130,9 +130,21 @@ local mouse_bindings = {
 -- local default_prog = (wezterm.target_triple == "x86_64-unknown-linux-gnu") and {"pwsh.exe"} or {"zsh"}
 
 -- (a and {b} or {c})[1]
-local is_windows = 2
-if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	is_windows = 1
+  local cmd = "echo $0"
+  local shell
+-- print(cmd)
+
+  local function excute_cmd(cmd)
+    local t = io.popen(cmd)
+	local ret = t:read("*all")
+	return ret
+  end
+--   local shell = excute_cmd(cmd)
+
+local is_windows = 1
+if wezterm.target_triple == "x86_64-unknown-linux-gnu"  or wezterm.target_triple == "x86_64-apple-darwin" then
+	is_windows = 2
+	shell = excute_cmd(cmd)
 end
 local default_shell = {"pwsh.exe","zsh"}
 local default_prog = {default_shell[is_windows]}
@@ -158,15 +170,6 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   local exec_name = basename(process_name):gsub("%.exe$", "")
   local title_with_icon
 
-  local cmd = "echo $0"
--- print(cmd)
-
-  local function excute_cmd(cmd)
-    local t = io.popen(cmd)
-	local ret = t:read("*all")
-	return ret
-  end
-  local shell = excute_cmd(cmd)
 
   if exec_name == "nu" then
 	title_with_icon = NU_ICON .. " NuShell"
@@ -204,7 +207,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	title_with_icon = LAMBDA_ICON .. " " .. exec_name:gsub("bb", "Babashka"):gsub("cmd%-clj", "Clojure")
   else
 	-- title_with_icon = HOURGLASS_ICON .. " " .. exec_name
-	title_with_icon = WSL_ICON .. " " .. exec_name .. shell
+	-- title_with_icon = WSL_ICON .. " " .. exec_name .. shell
+	title_with_icon = WSL_ICON .. " " .. exec_name
 	-- FIXME: 不能获取shell显示在tab中，windows没有任何问题
 	-- 【Lua / Shell】 Lua 通过 Shell 调用 top 命令获取 CPU/内存 等系统性能信息 : https://blog.csdn.net/ls9512/article/details/80569998
   end
@@ -262,14 +266,13 @@ return {
 	mouse_bindings = mouse_bindings,
 	disable_default_key_bindings = true,
 	default_prog = default_prog,
-	font = wezterm.font("Monospace"),
+	-- font = wezterm.font("Monospace"),
 	-- font = wezterm.font("Fira Code"),
-    -- font = wezterm.font_with_fallback({
-	-- 	"FiraCode Nerd Font",
-    --     "Cascadia Code",
-    --     "Fira Code",
-	-- 	"Monospace"
-    -- }),
+    font = wezterm.font_with_fallback({
+		"FiraCode Nerd Font",
+        "Cascadia Code",
+        "Fira Code"
+    }),
   colors = {
 	  tab_bar = {
 		  background = TAB_BAR_BG,
