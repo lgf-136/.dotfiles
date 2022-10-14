@@ -10,6 +10,7 @@ alias gco="git checkout"
 alias gcob="git checkout -b"
 alias gcom="git checkout main"
 alias gst="git status"
+alias ginit='git init && git config --local core.autocrlf false'
 
 # Navigation
 # alias -='cd -' # FIXME: bad option: -=

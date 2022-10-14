@@ -55,6 +55,12 @@ function gchore() {
     gcap "📌 chore: $@"
 }
 
+function pj(){
+    mkdir -p $1
+    git init
+    git config --local core.autocrlf false
+}
+
 #  font
 download_font () {
     # url="https://raw.githubusercontent.com/wsdjeg/DotFiles/7a75a186c6db9ad6f02cafba8d4c7bc78f47304c/local/share/fonts/${1// /%20}"
