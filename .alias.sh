@@ -32,6 +32,6 @@ alias dev='cd /home/lgf/code'
 alias lgf='cd /home/lgf'
 alias cu='su - lgf'
 alias cr='su -root'
-alias update='cd ~/.dotfiles && git pull'
+alias update='cd ~/.dotfiles && git pull && cd -'
 
 alias ep='explorer.exe .'
