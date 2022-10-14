@@ -1,3 +1,8 @@
+export LANG=en_US.UTF-8
+# You don't strictly need this collation, but most technical people
+# probably want C collation for sane results
+export LC_COLLATE=C
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

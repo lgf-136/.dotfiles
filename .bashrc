@@ -1,3 +1,8 @@
+export LANG=en_US.UTF-8
+# You don't strictly need this collation, but most technical people
+# probably want C collation for sane results
+export LC_COLLATE=C
+
 # Enable the subsequent settings only in interactive sessions
 case $- in
   *i*) ;;

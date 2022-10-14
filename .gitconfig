@@ -32,6 +32,7 @@
 	autocrlf = false
 
 [alias]
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 	co = checkout
 	cob = checkout -b
 	coo = !git fetch && git checkout
