@@ -80,6 +80,10 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/.alias.sh
+source ~/.exports.sh
+source ~/.functions.sh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
