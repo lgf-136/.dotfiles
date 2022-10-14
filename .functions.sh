@@ -58,7 +58,11 @@ function gchore() {
 function pj(){
     mkdir -p $1
     git init
+    git config --local user.name "lgf-136"
+    git config --local user.email "lgf_136@163.com"
     git config --local core.autocrlf false
+    # 中文乱码
+    git config --local core.quotepath false
 }
 
 #  font
