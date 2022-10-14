@@ -30,6 +30,7 @@
     email = lgf_136@163.com
 [core]
 	autocrlf = false
+	quotepath = false
 
 [alias]
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
