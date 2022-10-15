@@ -63,6 +63,7 @@ function pj(){
     git config --local core.autocrlf false
     # 中文乱码
     git config --local core.quotepath false
+    git config --local http.sslVerify false
 }
 
 #  font

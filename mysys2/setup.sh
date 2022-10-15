@@ -1,9 +1,10 @@
 #! /bin/sh
-pacman -Sy
+# 清华镜像源： https://mirrors.tuna.tsinghua.edu.cn/help/msys2/
+pacman -Syyu
 
-pacman -S --noconfirm base-devel mingw-w64-x86_64-toolchain git bash zsh csh ksh tmux fish vim emacs nano python python3-pip
+pacman -S --noconfirm base-devel mingw-w64-x86_64-toolchain git bash zsh csh ksh tmux fish vim emacs nano python python3-pip perl ruby
 # pacman -S --noconfirm msys/make msys/cmake msys/automake msys/gcc msys/g++ msys/gdb
-pacman -S --noconfirm mingw-w64-x86_64-make mingw-w64-x86_64-cmake mingw-w64-x86_64-automake mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb
+pacman -S --noconfirm mingw-w64-x86_64-make mingw-w64-x86_64-cmake mingw-w64-x86_64-gcc mingw-w64-x86_64-gdb
 pacman -S --noconfirm mingw-w64-x86_64-fzf mingw-w64-x86_64-bat
 pacman -S --noconfirm mingw-w64-x86_64-julia mingw-w64-x86_64-go mingw-w64-x86_64-rust
 

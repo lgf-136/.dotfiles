@@ -1,0 +1,8 @@
+[user]
+	name = lgf-136
+	email = lgf_136@163.com
+[core]
+	autocrlf = false
+	quotepath = false
+[http]
+	sslVerify = false
