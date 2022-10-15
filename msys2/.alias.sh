@@ -39,12 +39,12 @@ alias ep='explorer.exe .'
 
 alias update='cd ~/.dotfiles && git pull && cd .. && \
               rm -f ~/.zshrc ~/.bashrc ~/.common.sh ~/.exports.sh ~/.alias.sh ~/.functions.sh ~/.gitconfig && \
-              ln -s -f ~/.dotfiles/git-bash/.zshrc  ~/.zshrc && \
-              ln -s -f ~/.dotfiles/git-bash/.bashrc  ~/.bashrc && \
-              ln -s -f ~/.dotfiles/git-bash/.common.sh  ~/.common.sh && \
-              ln -s -f ~/.dotfiles/git-bash/.exports.sh  ~/.exports.sh && \
-              ln -s -f ~/.dotfiles/git-bash/.alias.sh  ~/.alias.sh && \
-              ln -s -f ~/.dotfiles/git-bash/.functions.sh  ~/.functions.sh && \
-              ln -s -f ~/.dotfiles/git-bash/.gitconfig  ~/.gitconfig
+              ln -s -f ~/.dotfiles/msys2/.zshrc  ~/.zshrc && \
+              ln -s -f ~/.dotfiles/msys2/.bashrc  ~/.bashrc && \
+              ln -s -f ~/.dotfiles/msys2/.common.sh  ~/.common.sh && \
+              ln -s -f ~/.dotfiles/msys2/.exports.sh  ~/.exports.sh && \
+              ln -s -f ~/.dotfiles/msys2/.alias.sh  ~/.alias.sh && \
+              ln -s -f ~/.dotfiles/msys2/.functions.sh  ~/.functions.sh && \
+              ln -s -f ~/.dotfiles/msys2/.gitconfig  ~/.gitconfig
             '
             
