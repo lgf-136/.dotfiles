@@ -36,6 +36,8 @@ alias cr='su -root'
 alias ls='ls --show-control-chars --color=auto' 
 
 alias ep='explorer.exe .'
+alias npm='npm.cmd'
+alias npx='npx.cmd'
 
 alias update='cd ~/.dotfiles && git pull && cd .. && \
               rm -f ~/.zshrc ~/.bashrc ~/.common.sh ~/.exports.sh ~/.alias.sh ~/.functions.sh ~/.gitconfig && \
