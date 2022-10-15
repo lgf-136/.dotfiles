@@ -72,11 +72,13 @@ ZSH_THEME="ys"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(docker docker-compose python npm zsh-autosuggestions zsh-syntax-highlighting z git)
 
-source $ZSH/oh-my-zsh.sh
-
 source ~/.alias.sh
 source ~/.exports.sh
 source ~/.functions.sh
+
+source $ZSH/oh-my-zsh.sh
+
+
 
 # User configuration
 

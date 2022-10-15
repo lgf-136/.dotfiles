@@ -87,11 +87,12 @@ plugins=(
 #      plugins+=(tmux-autoattach)
 #  fi
 
-source "$OSH"/oh-my-bash.sh
-
 source ~/.alias.sh
 source ~/.exports.sh
 source ~/.functions.sh
+
+source "$OSH"/oh-my-bash.sh
+
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
