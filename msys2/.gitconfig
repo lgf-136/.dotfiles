@@ -1,0 +1,16 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[http]
+	sslverify = false
+[init]
+	defaultBranch = main
+[user]
+	email = 1366256652@qq.com
+	name = lgf
+[core]
+	autocrlf = false
+	quotepath = false
+

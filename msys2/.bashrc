@@ -120,3 +120,5 @@ source ~/.functions.sh
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
+
+# exec zsh
