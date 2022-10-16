@@ -90,6 +90,7 @@ plugins=(
 source ~/.alias.sh
 source ~/.exports.sh
 source ~/.functions.sh
+source "$HOME/.cargo/env"
 
 source "$OSH"/oh-my-bash.sh
 

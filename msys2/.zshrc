@@ -75,6 +75,7 @@ plugins=(docker docker-compose python npm zsh-autosuggestions zsh-syntax-highlig
 source ~/.alias.sh
 source ~/.exports.sh
 source ~/.functions.sh
+source "$HOME/.cargo/env"
 
 source $ZSH/oh-my-zsh.sh
 

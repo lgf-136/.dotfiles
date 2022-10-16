@@ -81,11 +81,14 @@ ZSH_THEME="juanghurtado"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(docker docker-compose python npm zsh-autosuggestions zsh-syntax-highlighting z git)
 
-source $ZSH/oh-my-zsh.sh
-
 source ~/.alias.sh
 source ~/.exports.sh
 source ~/.functions.sh
+source "$HOME/.cargo/env"
+
+source $ZSH/oh-my-zsh.sh
+
+
 # source ../.functions.sh  使用..的话提示找不到路径
 
 # User configuration

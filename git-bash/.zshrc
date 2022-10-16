@@ -81,6 +81,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 source ~/.alias.sh
 source ~/.exports.sh
 source ~/.functions.sh
+source "$HOME/.cargo/env"
 
 source $ZSH/oh-my-zsh.sh
 

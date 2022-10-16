@@ -92,11 +92,14 @@ plugins=(
 #      plugins+=(tmux-autoattach)
 #  fi
 
-source "$OSH"/oh-my-bash.sh
-
 source ~/.alias.sh
 source ~/.exports.sh
 source ~/.functions.sh
+source "$HOME/.cargo/env"
+
+source "$OSH"/oh-my-bash.sh
+
+
 # source ../.functions.sh  使用..的话提示找不到路径
 
 # User configuration
