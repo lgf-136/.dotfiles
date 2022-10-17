@@ -13,6 +13,16 @@ update_all()
     cd -
 }
 
+git_settings(){
+    git config --global user.name "lgf-136"
+    git config --global user.email "lgf_136@163.com"
+    git config --global core.autocrlf false
+    # 中文乱码
+    git config --global core.quotepath false
+    git config --global http.sslVerify false
+    git config --global https.sslVerify false
+}
+
 program_exists() {
     local ret='0'
     command -v $1 >/dev/null 2>&1 || { local ret='1'; }
