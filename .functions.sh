@@ -6,7 +6,7 @@ os_platform(){
     info "current os platform is $distribution"
 }
 
-update()
+update_all()
 {
     cd ~/.dotfiles
     git pull
