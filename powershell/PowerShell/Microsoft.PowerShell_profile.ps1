@@ -10,6 +10,84 @@ Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
+Function Remove-SymLink ($link)
+{
+    if (test-path -pathtype container $link)
+    {
+        $command ="cmd /c rmdir"
+    }
+    else
+    {
+        $command ="cmd /c del"
+    }
+
+    invoke-expression"$command $link"
+}
+
+# Function ln ($target, $link) {
+#     New-Item -Path $link -ItemType HardLink  -Value $target
+# }
+
+Function ln ($target, $link)
+{
+    if (test-path -pathtype container $link)
+    {
+        $command ="cmd /c rmdir"
+        invoke-expression "$command $link"
+    }
+    elseif (test-path -pathtype Leaf $link)
+    {
+        $command ="cmd /c del"
+        invoke-expression "$command $link"
+    }
+    else
+    {
+        echo "no such file or folder"
+    }
+    
+    if ($PSVersionTable.PSVersion.Major -ge 5)
+    {
+        New-Item -Path $link -ItemType HardLink -Value $target
+    }
+    else
+    {
+        $command ="cmd /c mklink /h"
+        invoke-expression "$command""$link""""$target"""
+    }
+}
+
+# Function ln-s ($target, $link) {
+#     New-Item -Path $link -ItemType SymbolicLink -Value $target
+# }
+# 关于symlink：使用PowerShell创建硬链接和软链接 https://www.codenong.com/894430/
+Function ln-s ($target, $link)
+{
+    if (test-path -pathtype container $link)
+    {
+        $command ="cmd /c rmdir"
+        invoke-expression "$command $link"
+    }
+    elseif (test-path -pathtype Leaf $link)
+    {
+        $command ="cmd /c del"
+        invoke-expression "$command $link"
+    }
+    else
+    {
+        echo "no such file or folder"
+    }
+    
+    if ($PSVersionTable.PSVersion.Major -ge 5)
+    {
+        New-Item -Path $link -ItemType SymbolicLink -Value $target
+    }
+    else
+    {
+        $command ="cmd /c mklink /d"
+        invoke-expression "$command""$link""""$target"""
+    }
+}
+
 Function oms
 {
     Invoke-Expression (& 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' init powershell --print-full-init | Out-String)
