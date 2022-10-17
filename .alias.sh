@@ -3,6 +3,8 @@
 . ~/.common.sh
 
 # git
+# alias sshkey='ssh-keygen -t rsa -b 1024 -f yourkeyname -C "备注"'
+alias sshkey='ssh-keygen -t rsa -C "lgf"'
 alias ga="git add ."
 alias gcm="git commit -m"
 alias gcam="git add . && git commit -m"

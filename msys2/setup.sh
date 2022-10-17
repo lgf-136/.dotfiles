@@ -24,7 +24,7 @@ pacman -S vim
 # 编辑 ~/.cargo/config 文件，添加以下内容：
 
 mkdir - p ~/.cargo
-vim ~/.cargo/config
+# vim ~/.cargo/config
 cat>~/.cargo/config<<EOF
 [source.crates-io]
 replace-with = "tuna"

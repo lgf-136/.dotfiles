@@ -6,6 +6,31 @@ os_platform(){
     info "current os platform is $distribution"
 }
 
+program_exists() {
+    local ret='0'
+    command -v $1 >/dev/null 2>&1 || { local ret='1'; }
+    # type $1 >/dev/null 2>&1 || { local ret='1'; }
+
+    # fail on non-zero return value
+    if [ "$ret" -ne 0 ]; then
+        echo $1 has not been installed!
+        return 1
+    fi
+    echo $1 has been installed!
+    return 0
+}
+
+function is_command_exists(){
+    if type $1 >/dev/null 2>&1; then
+        echo $1 command existed
+        return 1
+    else
+        echo $1 command did not existed yet!
+        return 0
+    fi
+}
+
+
 #.# Better Git Logs.
 # https://cubox.pro/my/card?id=ff8080818381afe80183baad56c02b2b
 ### Using EMOJI-LOG (https://github.com/ahmadawais/Emoji-Log).
@@ -67,6 +92,157 @@ function pj(){
     git config --local http.sslVerify false
     git config --local https.sslVerify false
 }
+
+function install_xxx(){
+    is_command_exists xxx
+    if [ $? -eq 0 ]; then
+        version=$1
+        echo will install xxx
+        # wget https://go.dev/dl/go$version.linux-amd64.tar.gz 
+        # tar -xvf go$version.linux-amd64.tar.gz 
+        # sudo mv go /usr/local 
+        # echo "export GOROOT=/usr/local/go" >> ~/.zshrc
+        # echo "export GOROOT=/usr/local/go" >> ~/.bashrc
+        # echo "export PATH=:\$GOROOT/bin:\$PATH" >> ~/.zshrc
+        # echo "export PATH=:\$GOROOT/bin:\$PATH" >> ~/.bashrc
+        # # export GOPATH=$HOME/Projects/Proj1
+        # exec $SHELL
+        # go version
+        # rm -f ./go$version.linux-amd64.tar.gz
+    fi
+}
+
+function install_neovim(){
+    is_command_exists nvim
+    if [ $? -eq 0 ]; then
+        version=$1
+        echo will install nvim
+        rm -f ./nvim-linux64.tar.gz
+        wget https://ghproxy.com/https://github.com/neovim/neovim/releases/download/v$version/nvim-linux64.tar.gz
+        tar -xvf nvim-linux64.tar.gz
+        sudo mv nvim-linux64 /usr/local/nvim
+        sudo ln -s /usr/local/nvim/bin/nvim /usr/bin/nvim
+        rm -f ./nvim-linux64.tar.gz
+    fi
+}
+
+function install_vim_git(){
+    is_command_exists vim
+    if [ $? -eq 0 ]; then
+        git clone --depth 1 -b master https://github.com/vim/vim.git
+        # 到vim目录下
+        cd vim
+        ./configure --with-features=huge \
+            --enable-multibyte \
+            --enable-rubyinterp=yes \
+            --enable-python3interp=yes \
+            --with-python-config-dir=/usr/lib/python3.10/config-3.10m-x86_64-linux-gnu \
+            --enable-perlinterp=yes \
+            --enable-luainterp=yes \
+            --enable-gui=gtk2 \
+            --enable-cscope \
+            --prefix=/usr/local/vim9
+
+        make -j
+        make install
+
+        echo "export PATH=/usr/local/vim9/bin/:\$PATH" >> ~/.bashrc
+        echo "export PATH=/usr/local/vim9/bin/:\$PATH" >> ~/.zshrc
+        source ~/.bashrc
+    fi
+}
+function install_vim
+{
+    # sudo dnf install -y wget git python3-devel ncurses-devel.x86_64
+    cd
+    version=$1
+    wget https://ghproxy.com/https://github.com//vim/vim/archive/refs/tags/v$version.tar.gz
+    tar -xvf v$version.tar.gz
+    sudo mv vim-$version vim
+    sudo mv vim /usr/local/
+    cd /usr/local/vim/src
+    ./configure --prefix=/opt/vim --enable-luainterp=yes  --enable-pythoninterp=yes --with-python3-command=python3   --with-python3-config-dir=/usr/lib/python3.10/config-3.10m-x86_64-linux-gnu --enable-python3interp=yes --enable-tclinterp=yes --enable-rubyinterp=yes --enable-cscope --enable-terminal --enable-multibyte --with-tclsh=tclsh --with-ruby-command=ruby
+    sudo make install
+    if [ -f "/usr/local/sbin/vim" ];then
+        sudo mv /usr/local/sbin/vim /usr/local/sbin/vim.bak
+    fi
+    if [ -f "/usr/bin/vim" ];then
+        sudo mv /usr/bin/vim /usr/bin/vim.bak
+    fi
+    sudo ln -s /opt/vim/bin/vim /usr/local/sbin/vim
+    sudo ln -s /opt/vim/bin/vim /usr/bin/vim
+    cd
+    rm -rf vim-$version
+    rm -rf v$version.tar.*
+
+}
+
+function compile_vim_on_debian()
+{
+    sudo apt-get update && sudo apt-get install -y libncurses5-dev libncurses5 libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev  python3-dev ruby-dev lua5.4 lua5.4-dev
+
+    rm -rf ~/vim
+    git clone https://gitee.com/lgf1244/vim9.git ~/vim
+    cd ~/vim
+    ./configure --with-features=huge \
+        --enable-multibyte \
+        --enable-rubyinterp \
+        --enable-pythoninterp \
+        --enable-perlinterp \
+        --enable-luainterp \
+        --enable-gui=gtk2 \
+        --enable-cscope \
+        --prefix=/usr
+    make
+    sudo make install
+    cd -
+}
+
+function compile_vim_on_ubuntu()
+{
+    sudo apt-get install -y libncurses5-dev libncurses5  \
+        libgtk2.0-dev libatk1.0-dev \
+        libcairo2-dev libx11-dev libxpm-dev libxt-dev  python3-dev ruby-dev lua5.3 lua5.3-dev
+
+    rm -rf ~/vim
+    git clone https://gitee.com/lgf1244/vim9.git ~/vim
+    cd ~/vim
+    ./configure --with-features=huge \
+        --enable-multibyte \
+        --enable-rubyinterp \
+        --enable-pythoninterp \
+        --enable-perlinterp \
+        --enable-luainterp \
+        --enable-gui=gtk2 \
+        --enable-cscope \
+        --prefix=/usr
+    make
+    sudo make install
+    cd -
+}
+
+function install_golang(){
+    is_command_exists go
+    if [ $? -eq 0 ]; then
+        version=$1
+        wget https://go.dev/dl/go$version.linux-amd64.tar.gz 
+        tar -xvf go$version.linux-amd64.tar.gz 
+        sudo mv go /usr/local 
+        echo "export GOROOT=/usr/local/go" >> ~/.zshrc
+        echo "export GOROOT=/usr/local/go" >> ~/.bashrc
+        echo "export PATH=:\$GOROOT/bin:\$PATH" >> ~/.zshrc
+        echo "export PATH=:\$GOROOT/bin:\$PATH" >> ~/.bashrc
+        # export GOPATH=$HOME/Projects/Proj1
+        exec $SHELL
+        go version
+        rm -f ./go$version.linux-amd64.tar.gz
+    fi
+}
+
+
+
+
+
 
 #  font
 download_font () {
