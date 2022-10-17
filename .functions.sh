@@ -6,6 +6,13 @@ os_platform(){
     info "current os platform is $distribution"
 }
 
+update()
+{
+    cd ~/.dotfiles
+    git pull
+    cd -
+}
+
 program_exists() {
     local ret='0'
     command -v $1 >/dev/null 2>&1 || { local ret='1'; }
