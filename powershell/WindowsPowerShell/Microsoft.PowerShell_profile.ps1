@@ -10,6 +10,13 @@ Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
+Function update()
+{
+    cd ~\.dotfiles
+    git pull
+    cd ~
+}
+
 Function Remove-SymLink ($link)
 {
     if (test-path -pathtype container $link)
