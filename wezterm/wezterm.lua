@@ -1,4 +1,3 @@
--- https://wentao.org/post/2022-05-15-wezterm/
 local function basename(s)
 	return string.gsub(s, "(.*[/\\])(.*)", "%2")
   end
@@ -36,53 +35,62 @@ local SUB_IDX = {"₁","₂","₃","₄","₅","₆","₇","₈","₉","₁₀",
 local launch_menu = {}
 
 local ssh_cmd = {"ssh"}
---------------------window platform--------------------------------
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-	ssh_cmd = {"pwsh.exe", "ssh"}
-
-	-- table.insert(
-	-- 	launch_menu,
-	-- 	{
-	-- 		label = "PowerShell Core",
-	-- 		args = {"pwsh.exe", "-NoLogo"}
-	-- 	}
-	-- )
-
-	-- table.insert(
-	-- 	launch_menu,
-	-- 		{
-	-- 			label = "NyaGOS",
-	-- 			args = {"nyagos.exe", "--glob"},
-	-- 		}
-	-- )
-    table.insert(launch_menu,{label = "Bash",args = { "C:\\Program Files\\Git\\bin\\bash.exe"}})
+	ssh_cmd = {"powershell.exe", "ssh"}
+ 	-- config.term = "" -- Set to empty so FZF works on windows
+    -- config.term = "xterm"  -- fix bug in command "git log" with "terminal is not fully functional" or delete this term = "xxxx" (using default term value)
+	table.insert(launch_menu,{label = "msys2",args = { "D:\\msys64\\usr\\bin\\zsh.exe"}})
+	table.insert(launch_menu,{label = "Bash",args = { "C:\\Program Files\\Git\\bin\\bash.exe"}})
 	table.insert(launch_menu,{label = "NuShell",args = { "C:\\Program Files\\nu\\bin\\nu.exe"}})
-    table.insert(launch_menu, { label = "CMD", args = { "cmd.exe","-NoLogo" } })
-    table.insert(launch_menu, { label = "PowerShell 5", args = { "powershell.exe","-NoLogo" } })
+	table.insert(launch_menu, { label = "Command Prompt", args = { "cmd.exe" } })
+    table.insert(launch_menu, { label = "PowerShell 5", args = { "powershell.exe", "-NoLogo" } })
     table.insert(launch_menu, { label = "PowerShell 7", args = { "pwsh.exe", "-NoLogo" } })
     table.insert(launch_menu,
         { label = "VS PowerShell 2022", args = { "powershell", "-NoLogo", "-NoExit", "-Command", "devps 17.0" } })
     table.insert(launch_menu,
         { label = "VS PowerShell 2019", args = { "powershell", "-NoLogo", "-NoExit", "-Command", "devps 16.0" } })
-    table.insert(launch_menu, { label = "Command Prompt", args = { "cmd.exe" } })
+    
     table.insert(launch_menu,
         { label = "VS Command Prompt 2022", args = { "powershell", "-NoLogo", "-NoExit", "-Command", "devcmd 17.0" } })
     table.insert(launch_menu,
         { label = "VS Command Prompt 2019", args = { "powershell", "-NoLogo", "-NoExit", "-Command", "devcmd 16.0" } })
 
-end
---------------------linux platform--------------------------------
-if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
-    ssh_cmd = {"zsh", "ssh"}
+    -- Enumerate any WSL distributions that are installed and add those to the menu
+    local success, wsl_list, wsl_err = wezterm.run_child_process({ "wsl", "-l" })
+    -- `wsl.exe -l` has a bug where it always outputs utf16:
+    -- https://github.com/microsoft/WSL/issues/4607
+    -- So we get to convert it
+    wsl_list = wezterm.utf16_to_utf8(wsl_list)
+
+    for idx, line in ipairs(wezterm.split_by_newlines(wsl_list)) do
+        -- Skip the first line of output; it's just a header
+        if idx > 1 then
+            -- Remove the "(Default)" marker from the default line to arrive
+            -- at the distribution name on its own
+            local distro = line:gsub(" %(Default%)", "")
+
+            -- Add an entry that will spawn into the distro with the default shell
+            table.insert(launch_menu, {
+                label = distro .. " (WSL default shell)",
+                args = { "wsl", "--distribution", distro },
+            })
+
+            -- Here's how to jump directly into some other program; in this example
+            -- its a shell that probably isn't the default, but it could also be
+            -- any other program that you want to run in that environment
+            table.insert(launch_menu, {
+                label = distro .. " (WSL zsh login shell)",
+                args = { "wsl", "--distribution", distro, "--exec", "/bin/zsh", "-l" },
+            })
+        end
+    end
+else
     table.insert(launch_menu, { label = "zsh", args = { "zsh", "-l" } })
-    table.insert(launch_menu, { label = "bash", args = { "bash", "-l" } })
+	table.insert(launch_menu, { label = "bash", args = { "bash", "-l" } })
+	table.insert(launch_menu, { label = "sh", args = { "sh", "-l" } })
+
 end
---------------------macos platform--------------------------------
-if wezterm.target_triple == "x86_64-apple-darwin" then
-    ssh_cmd = {"zsh", "ssh"}
-    table.insert(launch_menu, { label = "zsh", args = { "zsh", "-l" } })
-    table.insert(launch_menu, { label = "bash", args = { "bash", "-l" } })
-end
+
 local ssh_config_file = wezterm.home_dir .. "/.ssh/config"
 local f = io.open(ssh_config_file)
 if f then
@@ -125,36 +133,13 @@ local mouse_bindings = {
 
 }
 
--- a > b and a or b
--- local default_prog = {"zsh"}
--- local default_prog = (wezterm.target_triple == "x86_64-unknown-linux-gnu") and {"pwsh.exe"} or {"zsh"}
 
--- (a and {b} or {c})[1]
-  local cmd = "echo $0"
-  local shell
--- print(cmd)
-
-  local function excute_cmd(cmd)
-    local t = io.popen(cmd)
-	local ret = t:read("*all")
-	return ret
-  end
---   local shell = excute_cmd(cmd)
-
-local is_windows = 1
-if wezterm.target_triple == "x86_64-unknown-linux-gnu"  or wezterm.target_triple == "x86_64-apple-darwin" then
-	is_windows = 2
-	shell = excute_cmd(cmd)
-end
-local default_shell = {"pwsh.exe","zsh"}
-local default_prog = {default_shell[is_windows]}
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   local edge_background = "#121212"
   local background = "#4E4E4E"
   local foreground = "#1C1B19"
   local dim_foreground = "#3A3A3A"
-
 
   if tab.is_active then
 	background = "#FBB829"
@@ -170,21 +155,16 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   local exec_name = basename(process_name):gsub("%.exe$", "")
   local title_with_icon
 
-
   if exec_name == "nu" then
 	title_with_icon = NU_ICON .. " NuShell"
   elseif exec_name == "pwsh" then
 	title_with_icon = PS_ICON .. " PS"
-  elseif exec_name == "powershell" then
-	title_with_icon = PS_ICON .. " powershell"
   elseif exec_name == "cmd" then
 	title_with_icon = CMD_ICON .. " CMD"
   elseif exec_name == "elvish" then
 	title_with_icon = ELV_ICON .. " Elvish"
   elseif exec_name == "wsl" or exec_name == "wslhost" then
 	title_with_icon = WSL_ICON .. " WSL"
-  elseif exec_name == "zsh" then
-	title_with_icon = WSL_ICON .. " zsh"
   elseif exec_name == "nyagos" then
 	title_with_icon = NYA_ICON .. " " .. pane_title:gsub(".*: (.+) %- .+", "%1")
   elseif exec_name == "yori" then
@@ -207,10 +187,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	title_with_icon = LAMBDA_ICON .. " " .. exec_name:gsub("bb", "Babashka"):gsub("cmd%-clj", "Clojure")
   else
 	-- title_with_icon = HOURGLASS_ICON .. " " .. exec_name
-	-- title_with_icon = WSL_ICON .. " " .. exec_name .. shell
 	title_with_icon = WSL_ICON .. " " .. exec_name
-	-- FIXME: 不能获取shell显示在tab中，windows没有任何问题
-	-- 【Lua / Shell】 Lua 通过 Shell 调用 top 命令获取 CPU/内存 等系统性能信息 : https://blog.csdn.net/ls9512/article/details/80569998
   end
   if pane_title:match("^Administrator: ") then
 	title_with_icon = title_with_icon .. " " .. ADMIN_ICON
@@ -255,6 +232,17 @@ wezterm.on(
 	end
 )
 
+-- local default_prog = {"pwsh.exe"}
+
+local is_windows = 1
+if wezterm.target_triple == "x86_64-unknown-linux-gnu"  or wezterm.target_triple == "x86_64-apple-darwin" then
+	is_windows = 2
+	shell = excute_cmd(cmd)
+end
+-- local default_shell = {"pwsh.exe","zsh"}
+-- local default_shell = {"C:\\Program Files\\Git\\bin\\bash.exe","zsh"}
+local default_shell = {"D:\\msys64\\usr\\bin\\zsh.exe","zsh"}
+local default_prog = {default_shell[is_windows]}
 
 return {
 	set_environment_variables = {
@@ -266,9 +254,8 @@ return {
 	mouse_bindings = mouse_bindings,
 	disable_default_key_bindings = true,
 	default_prog = default_prog,
-	-- font = wezterm.font("Monospace"),
 	-- font = wezterm.font("Fira Code"),
-    font = wezterm.font_with_fallback({
+	font = wezterm.font_with_fallback({
 		"FiraCode Nerd Font",
         "Cascadia Code",
         "Fira Code"
@@ -292,7 +279,7 @@ return {
 		{key="k", mods = "LEADER",action=wezterm.action{ActivatePaneDirection="Down"}},
 		{key="l", mods = "LEADER",action=wezterm.action{ActivatePaneDirection="Right"}},
 		{key = ",", mods = "LEADER", action = "ShowLauncher"},
-        {key = "z", mods = "ALT", action = "ShowLauncher"},
+		{key = "z", mods = "ALT", action = "ShowLauncher"},
 		{key = "b", mods = "LEADER", action = "ShowTabNavigator"},
 		{ key = "f", mods = "LEADER", action = "QuickSelect" },
 		{ key = "\t", mods = "LEADER",       action="ActivateLastTab"},
@@ -305,7 +292,7 @@ return {
 		{ key = "7", mods = "LEADER",       action=wezterm.action{ActivateTab=6}},
 		{ key = "8", mods = "LEADER",       action=wezterm.action{ActivateTab=7}},
 		{ key = "9", mods = "LEADER",       action=wezterm.action{ActivateTab=8}},
-		{ key = "l", mods = "LEADER",       action=wezterm.action{EmitEvent="toggle-ligature"}},
+		-- { key = "l", mods = "LEADER",       action=wezterm.action{EmitEvent="toggle-ligature"}},
 		{ key = "n", mods = "LEADER",       action=wezterm.action{ActivateTabRelative=1}},
 		{ key = "p", mods = "LEADER",       action=wezterm.action{ActivateTabRelative=-1}},
 		{ key = "&", mods = "LEADER|SHIFT", action=wezterm.action{CloseCurrentTab={confirm=true}}},
