@@ -63,3 +63,5 @@
 	test = "!f() { git cap \"✅ test: $@\"; }; f"
 	# CHORE.
 	chore = "!f() { git cap \"📌 chore: $@\"; }; f"
+[pull]
+	rebase = true
