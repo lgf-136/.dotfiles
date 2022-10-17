@@ -216,7 +216,7 @@ function compile_vim_on_debian()
 }
 
 
-# compile_vim_on_ubuntu 2.7 3.10
+# compile_vim_on_ubuntu 2.7 3.10   test pass
 function compile_vim_on_ubuntu()
 {
     sudo apt-get install -y libncurses5-dev libncurses5  \
