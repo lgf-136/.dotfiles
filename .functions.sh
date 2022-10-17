@@ -198,28 +198,34 @@ function compile_vim_on_debian()
     cd -
 }
 
+
+# compile_vim_on_ubuntu 2.7 3.10
 function compile_vim_on_ubuntu()
 {
     sudo apt-get install -y libncurses5-dev libncurses5  \
         libgtk2.0-dev libatk1.0-dev \
-        libcairo2-dev libx11-dev libxpm-dev libxt-dev  python3-dev ruby-dev lua5.3 lua5.3-dev
+        libcairo2-dev libx11-dev libxpm-dev libxt-dev python2-dev  python3-dev ruby-dev lua5.3 lua5.3-dev
 
     rm -rf ~/vim
     git clone https://gitee.com/lgf1244/vim9.git ~/vim
     cd ~/vim
     ./configure --with-features=huge \
         --enable-multibyte \
-        --enable-rubyinterp \
-        --enable-pythoninterp \
-        --enable-perlinterp \
-        --enable-luainterp \
+        --enable-pythoninterp=yes \
+        --with-python-config-dir=/usr/lib64/python$1/config-$1m-x86_64-linux-gnu \
+        --enable-python3interp=yes \
+        --with-python3-config-dir=/usr/lib64/python$2/config-$2m-x86_64-linux-gnu \
         --enable-gui=gtk2 \
         --enable-cscope \
-        --prefix=/usr
-    make
+        --prefix=/usr/local/vim
+    sudo make
     sudo make install
+    sudo rm -f /usr/bin/vim 
+    sudo ln -s /usr/local/vim/bin/vim /usr/bin/vim
     cd -
 }
+
+
 
 function install_golang(){
     is_command_exists go

@@ -96,6 +96,7 @@ source ~/.alias.sh
 source ~/.exports.sh
 source ~/.functions.sh
 source "$HOME/.cargo/env"
+source /etc/profile
 
 source "$OSH"/oh-my-bash.sh
 
