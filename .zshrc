@@ -79,7 +79,7 @@ ZSH_THEME="juanghurtado"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker docker-compose python npm zsh-autosuggestions zsh-syntax-highlighting z git)
+plugins=(docker poetry  docker-compose python npm zsh-autosuggestions zsh-syntax-highlighting z git)
 
 source ~/.alias.sh
 source ~/.exports.sh
