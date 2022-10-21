@@ -250,7 +250,7 @@ function pid()
 function gcap() {
     # BUG:  标记“&&”不是此版本中的有效语句分隔符。
     # git add . && git commit -m "$*" && git push
-    git add . ; git commit -m "$*" ; git push
+    git add . ; git commit -m "$args" ; git push
 }
 
 # FEAT.
@@ -316,7 +316,6 @@ Function ...(){
 Function ....(){
     cd ..; cd ..; cd ..
 }
-
 
 # scoop提速：解决scoop软件下载慢的问题 : https://blog.csdn.net/weixin_42250302/article/details/124733053
 function kscoop {
