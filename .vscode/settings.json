@@ -166,7 +166,6 @@
   "git.autofetch": true,
   "files.eol": "\n",
   "explorer.confirmDragAndDrop": false,
-  "window.commandCenter": true,
   "editor.stickyScroll.enabled": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "prettier.enable": false,
@@ -290,8 +289,18 @@
   },
   // "terminal.integrated.defaultProfile.windows": "Git Bash",
   // "terminal.integrated.automationShell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "terminal.integrated.defaultProfile.windows": "msys2",
-  "terminal.integrated.automationShell.windows": "D:\\msys64\\usr\\bin\\zsh.exe",
+  // "terminal.integrated.defaultProfile.windows": "msys2",
+  // "terminal.integrated.automationShell.windows": "D:\\msys64\\usr\\bin\\zsh.exe",
   "vsicons.dontShowNewVersionMessage": true,
-  "explorer.compactFolders": false
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "files.insertFinalNewline": true,
+  "cmake.configureOnOpen": true,
+  "cmake.cmakePath": "cmake",
+  "files.encoding": "gb2312",
+  "window.commandCenter": true,
+  // "cmake.cmakePath": "D:\\msys64\\mingw64\\bin\\cmake.exe"
 }
