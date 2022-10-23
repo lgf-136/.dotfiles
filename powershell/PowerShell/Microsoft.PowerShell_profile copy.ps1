@@ -10,10 +10,8 @@ Set-PSReadLineKeyHandler -Key "Ctrl+z" -Function Undo
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
-
 go env -w GO111MODULE=on
 go env -w GOPROXY=https://proxy.golang.com.cn,direct
-
 
 Function update()
 {
@@ -73,7 +71,7 @@ Function ln ($target, $link)
 # Function ln-s ($target, $link) {
 #     New-Item -Path $link -ItemType SymbolicLink -Value $target
 # }
-# 关于symlink：使用PowerShell创建硬链接和软链接 https://www.codenong.com/894430/
+# 鍏充簬symlink锛氫娇鐢≒owerShell鍒涘缓纭�閾炬帴鍜岃蒋閾炬帴 https://www.codenong.com/894430/
 Function ln-s ($target, $link)
 {
     if (test-path -pathtype container $link)
@@ -135,7 +133,7 @@ Function ap
     cd C:\Users\13662\AppData
 }
 
-# 利用域名无需魔法访问cloudflare workers(重新实现github加速) https://www.kejiwanjia.com/jiaocheng/105320.html
+# 鍒╃敤鍩熷悕鏃犻渶榄旀硶璁块棶cloudflare workers(閲嶆柊瀹炵幇github鍔犻€�) https://www.kejiwanjia.com/jiaocheng/105320.html
 Function gh-proxy($url='')
 {
     git clone  http://gitproxy.ml/$url
@@ -253,44 +251,44 @@ function pid()
 # git emojis
 
 function gcap() {
-    # BUG:  标记“&&”不是此版本中的有效语句分隔符。
+    # BUG:  鏍囪�扳€�&&鈥濅笉鏄�姝ょ増鏈�涓�鐨勬湁鏁堣��鍙ュ垎闅旂�︺€�
     # git add . && git commit -m "$*" && git push
     git add . ; git commit -m "$args" ; git push
 }
 
 # FEAT.
 function gfeat() {
-    gcap "✏️ feat: $args"
+    gcap "鉁忥笍 feat: $args"
 }
 
 # IMPROVE.
 function gimp() {
-    gcap "📈 improve: $args"
+    gcap "馃搱 improve: $args"
 }
 
 # FIX.
 function gfix() {
-    gcap "🔧 fix: $args"
+    gcap "馃敡 fix: $args"
 }
 
 # RELEASE.
 function grls() {
-    gcap "🚀 release: $args"
+    gcap "馃殌 release: $args"
 }
 
 # DOC.
 function gdoc() {
-    gcap "📑 doc: $args"
+    gcap "馃搼 doc: $args"
 }
 
 # TEST.
 function gtst() {
-    gcap "✅ test: $args"
+    gcap "鉁� test: $args"
 }
 
 # CHORE.
 function gchore() {
-    gcap "📌 chore: $args"
+    gcap "馃搶 chore: $args"
 }
 
 Function touch(){
@@ -322,75 +320,75 @@ Function ....(){
     cd ..; cd ..; cd ..
 }
 
-# scoop提速：解决scoop软件下载慢的问题 : https://blog.csdn.net/weixin_42250302/article/details/124733053
+# scoop鎻愰€燂細瑙ｅ喅scoop杞�浠朵笅杞芥參鐨勯棶棰� : https://blog.csdn.net/weixin_42250302/article/details/124733053
 function kscoop {
     <#
     .SYNOPSIS
-    加速托管在github上的scoop软件的下载及更新
+    鍔犻€熸墭绠″湪github涓婄殑scoop杞�浠剁殑涓嬭浇鍙婃洿鏂�
 
     .DESCRIPTION
-    加速托管在github上的scoop软件的下载及更新。支持软件的安装、更新、搜索，及
-    通过本函数安装软件的查询。函数涉及两个主要变量:
-        # 将此值更改为自己电脑上相应路径
+    鍔犻€熸墭绠″湪github涓婄殑scoop杞�浠剁殑涓嬭浇鍙婃洿鏂般€傛敮鎸佽蒋浠剁殑瀹夎�呫€佹洿鏂般€佹悳绱�锛屽強
+    閫氳繃鏈�鍑芥暟瀹夎�呰蒋浠剁殑鏌ヨ��銆傚嚱鏁版秹鍙婁袱涓�涓昏�佸彉閲�:
+        # 灏嗘�ゅ€兼洿鏀逛负鑷�宸辩數鑴戜笂鐩稿簲璺�寰�
         $basePath = "E:/toolbox/scoop/apps/"
-        # 存储通过本函数安装的软件信息的文件
+        # 瀛樺偍閫氳繃鏈�鍑芥暟瀹夎�呯殑杞�浠朵俊鎭�鐨勬枃浠�
         $appListFile = Join-Path ${basePath} "AAAppsList.json"
 
-    更新时，此方法只能更新用 kscoop -install 方式安装的软件，若要更新scoop原生方式安装的
-    软件，需先卸载原来软件（scoop uninstall ***），再使用 kscoop -install 安装
+    鏇存柊鏃讹紝姝ゆ柟娉曞彧鑳芥洿鏂扮敤 kscoop -install 鏂瑰紡瀹夎�呯殑杞�浠讹紝鑻ヨ�佹洿鏂皊coop鍘熺敓鏂瑰紡瀹夎�呯殑
+    杞�浠讹紝闇€鍏堝嵏杞藉師鏉ヨ蒋浠讹紙scoop uninstall ***锛夛紝鍐嶄娇鐢� kscoop -install 瀹夎��
 
     .PARAMETER install
-    要安装软件的全限定名，或者软件清单文件(xx.json)对应的Url
+    瑕佸畨瑁呰蒋浠剁殑鍏ㄩ檺瀹氬悕锛屾垨鑰呰蒋浠舵竻鍗曟枃浠�(xx.json)瀵瑰簲鐨刄rl
 
     .PARAMETER bucket
-    软件所在的 bucket
+    杞�浠舵墍鍦ㄧ殑 bucket
 
     .PARAMETER arch
-    软件的架构，32bit 或 64bit，默认安装 64bit 的软件，使用 -arch 32bit 安装32位的软件
+    杞�浠剁殑鏋舵瀯锛�32bit 鎴� 64bit锛岄粯璁ゅ畨瑁� 64bit 鐨勮蒋浠讹紝浣跨敤 -arch 32bit 瀹夎��32浣嶇殑杞�浠�
 
     .PARAMETER noCache
-    安装时是否使用缓存，默认使用缓存，若开启此开关则不使用
+    瀹夎�呮椂鏄�鍚︿娇鐢ㄧ紦瀛橈紝榛樿�や娇鐢ㄧ紦瀛橈紝鑻ュ紑鍚�姝ゅ紑鍏冲垯涓嶄娇鐢�
 
     .PARAMETER update
-    要更新软件的全限定名，或 * 。若参数值为 * ，则更新 $appListFile 中所有软件
+    瑕佹洿鏂拌蒋浠剁殑鍏ㄩ檺瀹氬悕锛屾垨 * 銆傝嫢鍙傛暟鍊间负 * 锛屽垯鏇存柊 $appListFile 涓�鎵€鏈夎蒋浠�
 
     .PARAMETER search
-    要搜索的软件的名字，不必是软件的全限定名，若名字有空格则用引号括住
+    瑕佹悳绱㈢殑杞�浠剁殑鍚嶅瓧锛屼笉蹇呮槸杞�浠剁殑鍏ㄩ檺瀹氬悕锛岃嫢鍚嶅瓧鏈夌┖鏍煎垯鐢ㄥ紩鍙锋嫭浣�
 
     .PARAMETER list
-    若开启此开关，则列出通过本函数安装过的软件
+    鑻ュ紑鍚�姝ゅ紑鍏筹紝鍒欏垪鍑洪€氳繃鏈�鍑芥暟瀹夎�呰繃鐨勮蒋浠�
 
     .EXAMPLE
     kscoop -install grep -bucket main -noCache
-    不使用缓存
+    涓嶄娇鐢ㄧ紦瀛�
 
     .EXAMPLE
     kscoop -install grep -bucket main
-    使用缓存
+    浣跨敤缂撳瓨
 
     .EXAMPLE
     kscoop -install grep -bucket main -arch 32bit -noCache
-    安装32位的软件
+    瀹夎��32浣嶇殑杞�浠�
 
     .EXAMPLE
     kscoop -install https://github.com/ScoopInstaller/Main/blob/master/bucket/psutils.json -noCache
-    通过 Url 安装一个软件
+    閫氳繃 Url 瀹夎�呬竴涓�杞�浠�
 
     .EXAMPLE
     kscoop -update llvm
-    更新 $appListFile 中的某个软件
+    鏇存柊 $appListFile 涓�鐨勬煇涓�杞�浠�
 
     .EXAMPLE
     kscoop -update *
-    更新 $appListFile 中的所有软件
+    鏇存柊 $appListFile 涓�鐨勬墍鏈夎蒋浠�
 
     .EXAMPLE
     kscoop -search grep
-    使用浏览器在scoop仓库中搜索 grep
+    浣跨敤娴忚�堝櫒鍦╯coop浠撳簱涓�鎼滅储 grep
 
     .EXAMPLE
     kscoop -list
-    列出 $appListFile 中的软件信息
+    鍒楀嚭 $appListFile 涓�鐨勮蒋浠朵俊鎭�
     #>
     param (
         [Parameter(Mandatory, ParameterSetName = 'InstallApp')]
@@ -413,15 +411,15 @@ function kscoop {
     )
 
     begin {
-        #将此值更改为自己电脑上相应路径
+        #灏嗘�ゅ€兼洿鏀逛负鑷�宸辩數鑴戜笂鐩稿簲璺�寰�
         $basePath = "E:/toolbox/scoop/apps/"
-        #存储已安装软件信息的文件
+        #瀛樺偍宸插畨瑁呰蒋浠朵俊鎭�鐨勬枃浠�
         $appListFile = Join-Path ${basePath} "AAAppsList.json"
         if (!(Test-Path $appListFile)) {
 			New-Item $appListFile -Force
         }
 
-        #读取使用本方法安装的软件列表
+        #璇诲彇浣跨敤鏈�鏂规硶瀹夎�呯殑杞�浠跺垪琛�
         $appList = Get-Content $appListFile | ConvertFrom-Json
         $installedApps = @{}
         foreach ($app in $appList.psobject.Properties) {
@@ -435,21 +433,21 @@ function kscoop {
         switch ($PsCmdlet.ParameterSetName) {
             "InstallApp" {
                 $install = $install.Trim()
-                #参数为url
+                #鍙傛暟涓簎rl
                 if ($install -match "^https://github\.com/ScoopInstaller(/.+){5}\.json$") {
                     $bucket = $install.Split('/')[4]
                     $appName = $install.Substring($install.LastIndexOf('/') + 1).Replace(".json", '')
                 }
-                #参数为软件名
+                #鍙傛暟涓鸿蒋浠跺悕
                 if ($install -notmatch "^https://github\.com/ScoopInstaller.*json$") {
                     $appName = $install
-                    #如果没有指明bucket，检查该软件之前是否安装过
+                    #濡傛灉娌℃湁鎸囨槑bucket锛屾�€鏌ヨ�ヨ蒋浠朵箣鍓嶆槸鍚﹀畨瑁呰繃
                     if ([String]::IsNullOrEmpty($bucket)) {
                         if ($installedApps.Contains($appName)) {
                             $arch = $installedApps[$appName].arch
                             $bucket = $installedApps[$appName].bucket
                         } else {
-                            Write-Host "${appListFile} 中找不到软件 ${appName}，请指明软件 bucket" -ForegroundColor Red
+                            Write-Host "${appListFile} 涓�鎵句笉鍒拌蒋浠� ${appName}锛岃�锋寚鏄庤蒋浠� bucket" -ForegroundColor Red
                             return
                         }
                     }
@@ -466,7 +464,7 @@ function kscoop {
                     scoop install $jsonFile -a $arch
                 }
 
-                #将新软件记录到文件中
+                #灏嗘柊杞�浠惰�板綍鍒版枃浠朵腑
                 if (-not $installedApps.Contains($appName)) {
                     $installedApps.Add($appName, @{ 'bucket' = $bucket; 'arch' = $arch })
                     $installedApps |ConvertTo-Json |Out-File $appListFile
@@ -474,7 +472,7 @@ function kscoop {
             }
             "UpdateApp" {
                 $appName = $update
-                #更新所有软件
+                #鏇存柊鎵€鏈夎蒋浠�
                 if ($appName -eq '*' ) {
                     foreach ($appName in $installedApps.keys) {
                         $bucket, $arch = $installedApps[$appName].bucket, $installedApps[$appName].arch
@@ -486,10 +484,10 @@ function kscoop {
 
                         scoop install $jsonFile -a $arch -k
                     }
-                    Write-Host "`n一共更新 $($installedApps.count) 个软件：" -ForegroundColor Green
+                    Write-Host "`n涓€鍏辨洿鏂� $($installedApps.count) 涓�杞�浠讹細" -ForegroundColor Green
                     $installedApps.Keys | ForEach-Object { Write-Output "`t$_" }
                 }
-                #更新某个软件
+                #鏇存柊鏌愪釜杞�浠�
                 else {
                     if ($installedApps.contains($appName)) {
                         $bucket, $arch = $installedApps[$appName].bucket, $installedApps[$appName].arch
@@ -502,7 +500,7 @@ function kscoop {
                         scoop install $jsonFile -a $arch -k
                     }
                     else {
-                        $prompt = "文件 ${appListFile} 不存在软件 ${appName}，请确认软件名称是否正确"
+                        $prompt = "鏂囦欢 ${appListFile} 涓嶅瓨鍦ㄨ蒋浠� ${appName}锛岃�风‘璁よ蒋浠跺悕绉版槸鍚︽�ｇ‘"
                         Write-Host $prompt -ForegroundColor Red
                     }
                 }
@@ -511,7 +509,7 @@ function kscoop {
                 Start-Process msedge "https://scoop.sh/#/apps?q=${search}&s=0&d=1&o=true"
             }
             "ListApp" {
-                Write-Host "${appListFile} 中的软件：`n"
+                Write-Host "${appListFile} 涓�鐨勮蒋浠讹細`n"
                 $installedApps
             }
         }
@@ -520,7 +518,7 @@ function kscoop {
 function k-scoop-down-helper ($url, $file) {
     <#
     .DESCRIPTION
-    根据scoop仓库中软件的 URL 地址，将软件对应的 json 文件下载到本地
+    鏍规嵁scoop浠撳簱涓�杞�浠剁殑 URL 鍦板潃锛屽皢杞�浠跺�瑰簲鐨� json 鏂囦欢涓嬭浇鍒版湰鍦�
     #>
     try {
         $Response = Invoke-WebRequest -Uri $url
@@ -542,7 +540,7 @@ function k-scoop-down-helper ($url, $file) {
             #' $jsonFile
         }
         Default {
-            Write-Host "出现错误，无法下载文件:`n`t${url}" -ForegroundColor Red
+            Write-Host "鍑虹幇閿欒��锛屾棤娉曚笅杞芥枃浠�:`n`t${url}" -ForegroundColor Red
         }
     }
 
