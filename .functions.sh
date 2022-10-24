@@ -52,7 +52,7 @@ function is_command_exists(){
 # https://cubox.pro/my/card?id=ff8080818381afe80183baad56c02b2b
 ### Using EMOJI-LOG (https://github.com/ahmadawais/Emoji-Log).
 
-function gignore(){
+function gitignore(){
     curl -L -s https://www.gitignore.io/api/$@ > .gitignore
 }
 
