@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. ./.common.sh
+. ~/.dotfiles/.common.sh
 
 # git
 # alias sshkey='ssh-keygen -t rsa -b 1024 -f yourkeyname -C "备注"'

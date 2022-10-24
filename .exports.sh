@@ -1,6 +1,6 @@
 #! /bin/sh
 
-source ./.common.sh
+source ~/.dotfiles/.common.sh
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib
 export PATH=$PATH:/mnt/c/Windows:/mnt/c/Windows/system32
