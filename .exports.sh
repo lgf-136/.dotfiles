@@ -35,6 +35,7 @@ export PATH=~/.pyenv/libexec:$PATH
 # nameserver 192.168.8.1
 # EOF
 # )"
+# echo "${resolv_conf}" > /etc/resolv.conf
 
 # cat << 'EOF' > /mnt/e/code/dev-env/wsl2-static-ip_ubuntu-20.04.bat
 # @echo off
