@@ -45,18 +45,13 @@ Function bd($KeyWord){
 Function gg($KeyWord){
     Start-Process -FilePath https://cn.bing.com/search?q=$KeyWord
 }
-Function tt($KeyWord){
-    Start-Process -FilePath https://cn.bing.com/search?q=$KeyWord
-}
-# 综合聚合搜索， 百度，必应，谷歌。。。
 Function jhzh($KeyWord){
     Start-Process -FilePath https://cn.bing.com/search?q=$KeyWord
     Start-Process -FilePath https://www.baidu.com/s?wd=$KeyWord
 }
-# 图片聚合搜索， 百度图片，必应图片，谷歌图片，。。。
 Function jhtp($KeyWord){
-    Start-Process -FilePath https://cn.bing.com/search?q=$KeyWord
-    Start-Process -FilePath https://cn.bing.com/search?q=$KeyWord
+    Start-Process -FilePath https://cn.bing.com/images/search?q=$KeyWord
+    Start-Process -FilePath https://image.baidu.com/search/index?tn=baiduimage"&"ie=utf-8"&"word=$KeyWord
 }
 
 # 利用域名无需魔法访问cloudflare workers(重新实现github加速) https://www.kejiwanjia.com/jiaocheng/105320.html
