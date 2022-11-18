@@ -1,165 +1,169 @@
-function bar(){ busybox ar }
-function barch(){ busybox arch }
-function bascii(){ busybox ascii }
-function bash(){ busybox ash }
-function bawk(){ busybox awk }
-function bbase32(){ busybox base32 }
-function bbase64(){ busybox base64 }
-function bbasename(){ busybox basename }
-function bbash(){ busybox bash }
-function bbc(){ busybox bc }
-function bbunzip2(){ busybox bunzip2 }
-function bbusybox(){ busybox busybox }
-function bbzcat(){ busybox bzcat }
-function bbzip2(){ busybox bzip2 }
-function bcal(){ busybox cal }
-function bcat(){ busybox cat }
-function bchattr(){ busybox chattr }
-function bchmod(){ busybox chmod }
-function bcksum(){ busybox cksum }
-function bclear(){ busybox clear }
-function bcmp(){ busybox cmp }
-function bcomm(){ busybox comm }
-function bcp(){ busybox cp }
-function bcpio(){ busybox cpio }
-function bcrc32(){ busybox crc32 }
-function bcut(){ busybox cut }
-function bdate(){ busybox date }
-function bdc(){ busybox dc }
-function bdd(){ busybox dd }
-function bdf(){ busybox df }
-function bdiff(){ busybox diff }
-function bdirname(){ busybox dirname }
-function bdos2unix(){ busybox dos2unix }
-function bdpkg(){ busybox dpkg }
-function bdpkg-deb(){ busybox dpkg-deb }
-function bdu(){ busybox du }
-function becho(){ busybox echo }
-function bed(){ busybox ed }
-function begrep(){ busybox egrep }
-function benv(){ busybox env }
-function bexpand(){ busybox expand }
-function bexpr(){ busybox expr }
-function bfactor(){ busybox factor }
-function bFALSE(){ busybox FALSE }
-function bfgrep(){ busybox fgrep }
-function bfind(){ busybox find }
-function bfold(){ busybox fold }
-function bfree(){ busybox free }
-function bfsync(){ busybox fsync }
-function bftpget(){ busybox ftpget }
-function bftpput(){ busybox ftpput }
-function bgetopt(){ busybox getopt }
-function bgrep(){ busybox grep }
-function bgroups(){ busybox groups }
-function bgunzip(){ busybox gunzip }
-function bgzip(){ busybox gzip }
-function bhd(){ busybox hd }
-function bhead(){ busybox head }
-function bhexdump(){ busybox hexdump }
-function bhttpd(){ busybox httpd }
-function biconv(){ busybox iconv }
-function bid(){ busybox id }
-function binotifyd(){ busybox inotifyd }
-function binstall(){ busybox install }
-function bipcalc(){ busybox ipcalc }
-function bjn(){ busybox jn }
-function bkill(){ busybox kill }
-function bkillall(){ busybox killall }
-function bless(){ busybox less }
-function blink(){ busybox link }
-function bln(){ busybox ln }
-function blogname(){ busybox logname }
-function bls(){ busybox ls }
-function blsattr(){ busybox lsattr }
-function blzcat(){ busybox lzcat }
-function blzma(){ busybox lzma }
-function blzop(){ busybox lzop }
-function blzopcat(){ busybox lzopcat }
-function bmake(){ busybox make }
-function bman(){ busybox man }
-function bmd5sum(){ busybox md5sum }
-function bmkdir(){ busybox mkdir }
-function bmktemp(){ busybox mktemp }
-function bmv(){ busybox mv }
-function bnc(){ busybox nc }
-function bnl(){ busybox nl }
-function bnproc(){ busybox nproc }
-function bod(){ busybox od }
-function bpaste(){ busybox paste }
-function bpatch(){ busybox patch }
-function bpgrep(){ busybox pgrep }
-function bpidof(){ busybox pidof }
-function bpipe_progress(){ busybox pipe_progress }
-function bpkill(){ busybox pkill }
-function bprintenv(){ busybox printenv }
-function bprintf(){ busybox printf }
-function bps(){ busybox ps }
-function bpwd(){ busybox pwd }
-function breadlink(){ busybox readlink }
-function brealpath(){ busybox realpath }
-function breset(){ busybox reset }
-function brev(){ busybox rev }
-function brm(){ busybox rm }
-function brmdir(){ busybox rmdir }
-function brpm(){ busybox rpm }
-function brpm2cpio(){ busybox rpm2cpio }
-function bsed(){ busybox sed }
-function bseq(){ busybox seq }
-function bsh(){ busybox sh }
-function bsha1sum(){ busybox sha1sum }
-function bsha256sum(){ busybox sha256sum }
-function bsha3sum(){ busybox sha3sum }
-function bsha512sum(){ busybox sha512sum }
-function bshred(){ busybox shred }
-function bshuf(){ busybox shuf }
-function bsleep(){ busybox sleep }
-function bsort(){ busybox sort }
-function bsplit(){ busybox split }
-function bssl_client(){ busybox ssl_client }
-function bstat(){ busybox stat }
-function bstrings(){ busybox strings }
-function bsu(){ busybox su }
-function bsum(){ busybox sum }
-function bsync(){ busybox sync }
-function btac(){ busybox tac }
-function btail(){ busybox tail }
-function btar(){ busybox tar }
-function btee(){ busybox tee }
-function btest(){ busybox test }
-function btime(){ busybox time }
-function btimeout(){ busybox timeout }
-function btouch(){ busybox touch }
-function btr(){ busybox tr }
-function bTRUE(){ busybox TRUE }
-function btruncate(){ busybox truncate }
-function bts(){ busybox ts }
-function btsort(){ busybox tsort }
-function bttysize(){ busybox ttysize }
-function buname(){ busybox uname }
-function buncompress(){ busybox uncompress }
-function bunexpand(){ busybox unexpand }
-function buniq(){ busybox uniq }
-function bunix2dos(){ busybox unix2dos }
-function bunlink(){ busybox unlink }
-function bunlzma(){ busybox unlzma }
-function bunlzop(){ busybox unlzop }
-function bunxz(){ busybox unxz }
-function bunzip(){ busybox unzip }
-function buptime(){ busybox uptime }
-function busleep(){ busybox usleep }
-function buudecode(){ busybox uudecode }
-function buuencode(){ busybox uuencode }
-function bvi(){ busybox vi }
-function bwatch(){ busybox watch }
-function bwc(){ busybox wc }
-function bwget(){ busybox wget }
-function bwhich(){ busybox which }
-function bwhoami(){ busybox whoami }
-function bwhois(){ busybox whois }
-function bxargs(){ busybox xargs }
-function bxxd(){ busybox xxd }
-function bxz(){ busybox xz }
-function bxzcat(){ busybox xzcat }
-function byes(){ busybox yes }
-function bzcat(){ busybox zcat }
+function bar(){ busybox ar $args }
+function barch(){ busybox arch $args }
+function bascii(){ busybox ascii $args }
+function bash(){ busybox ash $args }
+function bawk(){ busybox awk $args }
+function bbase32(){ busybox base32 $args }
+function bbase64(){ busybox base64 $args }
+function bbasename(){ busybox basename $args }
+function bbash(){ busybox bash $args }
+function bbc(){ busybox bc $args }
+function bbunzip2(){ busybox bunzip2 $args }
+function bbusybox(){ busybox busybox $args }
+function bbzcat(){ busybox bzcat $args }
+function bbzip2(){ busybox bzip2 $args }
+function bcal(){ busybox cal $args }
+function bcat(){ busybox cat $args }
+function bchattr(){ busybox chattr $args }
+function bchmod(){ busybox chmod $args }
+function bcksum(){ busybox cksum $args }
+function bclear(){ busybox clear $args }
+function bcmp(){ busybox cmp $args }
+function bcomm(){ busybox comm $args }
+function bcp(){ busybox cp $args }
+function bcpio(){ busybox cpio $args }
+function bcrc32(){ busybox crc32 $args }
+function bcut(){ busybox cut $args }
+function bdate(){ busybox date $args }
+function bdc(){ busybox dc $args }
+function bdd(){ busybox dd $args }
+function bdf(){ busybox df $args }
+function bdiff(){ busybox diff $args }
+function bdirname(){ busybox dirname $args }
+function bdos2unix(){ busybox dos2unix $args }
+function bdpkg(){ busybox dpkg $args }
+function bdpkg-deb(){ busybox dpkg-deb $args }
+function bdu(){ busybox du $args }
+function becho(){ busybox echo $args }
+function bed(){ busybox ed $args }
+function begrep(){ busybox egrep $args }
+function benv(){ busybox env $args }
+function bexpand(){ busybox expand $args }
+function bexpr(){ busybox expr $args }
+function bfactor(){ busybox factor $args }
+function bFALSE(){ busybox FALSE $args }
+function bfgrep(){ busybox fgrep $args }
+function bfind(){ busybox find $args }
+function bfold(){ busybox fold $args }
+function bfree(){ busybox free $args }
+function bfsync(){ busybox fsync $args }
+function bftpget(){ busybox ftpget $args }
+function bftpput(){ busybox ftpput $args }
+function bgetopt(){ busybox getopt $args }
+function bgrep(){ busybox grep $args }
+function bgroups(){ busybox groups $args }
+function bgunzip(){ busybox gunzip $args }
+function bgzip(){ busybox gzip $args }
+function bhd(){ busybox hd $args }
+function bhead(){ busybox head $args }
+function bhexdump(){ busybox hexdump $args }
+function bhttpd(){ busybox httpd $args }
+function biconv(){ busybox iconv $args }
+function bid(){ busybox id $args }
+function binotifyd(){ busybox inotifyd $args }
+function binstall(){ busybox install $args }
+function bipcalc(){ busybox ipcalc $args }
+function bjn(){ busybox jn $args }
+function bkill(){ busybox kill $args }
+function bkillall(){ busybox killall $args }
+function bless(){ busybox less $args }
+function blink(){ busybox link $args }
+function bln(){ busybox ln $args }
+function blogname(){ busybox logname $args }
+function bls(){ busybox ls $args }
+function blsattr(){ busybox lsattr $args }
+function blzcat(){ busybox lzcat $args }
+function blzma(){ busybox lzma $args }
+function blzop(){ busybox lzop $args }
+function blzopcat(){ busybox lzopcat $args }
+function bmake(){ busybox make $args }
+function bman(){ busybox man $args }
+function bmd5sum(){ busybox md5sum $args }
+function bmkdir(){ busybox mkdir $args }
+function bmktemp(){ busybox mktemp $args }
+function bmv(){ busybox mv $args }
+function bnc(){ busybox nc $args }
+function bnl(){ busybox nl $args }
+function bnproc(){ busybox nproc $args }
+function bod(){ busybox od $args }
+function bpaste(){ busybox paste $args }
+function bpatch(){ busybox patch $args }
+function bpgrep(){ busybox pgrep $args }
+function bpidof(){ busybox pidof $args }
+function bpipe_progress(){ busybox pipe_progress $args }
+function bpkill(){ busybox pkill $args }
+function bprintenv(){ busybox printenv $args }
+function bprintf(){ busybox printf $args }
+function bps(){ busybox ps $args }
+function bpwd(){ busybox pwd $args }
+function breadlink(){ busybox readlink $args }
+function brealpath(){ busybox realpath $args }
+function breset(){ busybox reset $args }
+function brev(){ busybox rev $args }
+function brm(){ busybox rm $args }
+function brmdir(){ busybox rmdir $args }
+function brpm(){ busybox rpm $args }
+function brpm2cpio(){ busybox rpm2cpio $args }
+function bsed(){ busybox sed $args }
+function bseq(){ busybox seq $args }
+function bsh(){ busybox sh $args }
+function bsha1sum(){ busybox sha1sum $args }
+function bsha256sum(){ busybox sha256sum $args }
+function bsha3sum(){ busybox sha3sum $args }
+function bsha512sum(){ busybox sha512sum $args }
+function bshred(){ busybox shred $args }
+function bshuf(){ busybox shuf $args }
+function bsleep(){ busybox sleep $args }
+function bsort(){ busybox sort $args }
+function bsplit(){ busybox split $args }
+function bssl_client(){ busybox ssl_client $args }
+function bstat(){ busybox stat $args }
+function bstrings(){ busybox strings $args }
+function bsu(){ busybox su $args }
+function bsum(){ busybox sum $args }
+function bsync(){ busybox sync $args }
+function btac(){ busybox tac $args }
+function btail(){ busybox tail $args }
+function btar(){ busybox tar $args }
+function btee(){ busybox tee $args }
+function btest(){ busybox test $args }
+function btime(){ busybox time $args }
+function btimeout(){ busybox timeout $args }
+function btouch(){ busybox touch $args }
+function btr(){ busybox tr $args }
+function bTRUE(){ busybox TRUE $args }
+function btruncate(){ busybox truncate $args }
+function bts(){ busybox ts $args }
+function btsort(){ busybox tsort $args }
+function bttysize(){ busybox ttysize $args }
+function buname(){ busybox uname $args }
+function buncompress(){ busybox uncompress $args }
+function bunexpand(){ busybox unexpand $args }
+function buniq(){ busybox uniq $args }
+function bunix2dos(){ busybox unix2dos $args }
+function bunlink(){ busybox unlink $args }
+function bunlzma(){ busybox unlzma $args }
+function bunlzop(){ busybox unlzop $args }
+function bunxz(){ busybox unxz $args }
+function bunzip(){ busybox unzip $args }
+function buptime(){ busybox uptime $args }
+function busleep(){ busybox usleep $args }
+function buudecode(){ busybox uudecode $args }
+function buuencode(){ busybox uuencode $args }
+function bvi(){ busybox vi $args }
+function bwatch(){ busybox watch $args }
+function bwc(){ busybox wc $args }
+function bwget(){ busybox wget $args }
+function bwhich(){ busybox which $args }
+function bwhoami(){ busybox whoami $args }
+function bwhois(){ busybox whois $args }
+function bxargs(){ busybox xargs $args }
+function bxxd(){ busybox xxd $args }
+function bxz(){ busybox xz $args }
+function bxzcat(){ busybox xzcat $args }
+function byes(){ busybox yes $args }
+function bzcat(){ busybox zcat $args }
+function bls(){ busybox ls $args }
+function bll(){ busybox ls -lh $args }
+function bla(){ busybox ls -lah $args }
+function bmd(){ busybox mkdir -p $args }
