@@ -14,3 +14,7 @@
 	autocrlf = false
 	quotepath = false
 
+[safe]
+	directory = E:/system/vmware/linux/ubuntu/22.04
+[credential "http://192.168.1.5"]
+	provider = generic

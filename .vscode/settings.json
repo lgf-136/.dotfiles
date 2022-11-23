@@ -301,5 +301,8 @@
   "cmake.configureOnOpen": true,
   "cmake.cmakePath": "cmake",
   "window.commandCenter": true,
+  "remote.SSH.remotePlatform": {
+    "192.168.1.5": "linux"
+  },
   // "cmake.cmakePath": "D:\\msys64\\mingw64\\bin\\cmake.exe"
 }
