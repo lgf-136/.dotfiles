@@ -1,24 +1,17 @@
-export LANG=en_US.UTF-8
-# You don't strictly need this collation, but most technical people
-# probably want C collation for sane results
-export LC_COLLATE=C
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="codespaces"
-ZSH_THEME="juanghurtado"
-# ZSH_THEME="ys"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME="codespaces"
+# Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -77,7 +70,7 @@ ZSH_THEME="juanghurtado"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker docker-compose python npm zsh-autosuggestions zsh-syntax-highlighting git-open git)
+plugins=(docker docker-compose python npm zsh-autosuggestions zsh-syntax-highlighting z git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,7 +79,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -106,6 +99,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-DISABLE_AUTO_UPDATE=true
-DISABLE_UPDATE_PROMPT=true
 
+#-----------------------------VARIABLE--------------------------------
+source ~/.dotfiles/.variable.sh
+
+#-----------------------------EXPORTS---------------------------------
+source ~/.dotfiles/.exports.sh
+
+#-----------------------------ALIAS-----------------------------------
+source ~/.dotfiles/.alias.sh
+
+#---------------------------FUNCTIONS---------------------------------
+source ~/.dotfiles/.functions.sh
