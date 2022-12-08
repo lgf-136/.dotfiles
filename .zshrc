@@ -88,6 +88,7 @@ export LANG=en_US.UTF-8
 #   export EDITOR='mvim'
 # fi
 
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -99,6 +100,10 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+<<<<<<< HEAD
+DISABLE_AUTO_UPDATE=true
+DISABLE_UPDATE_PROMPT=true
+=======
 
 #-----------------------------VARIABLE--------------------------------
 source ~/.dotfiles/.variable.sh
@@ -111,3 +116,4 @@ source ~/.dotfiles/.alias.sh
 
 #---------------------------FUNCTIONS---------------------------------
 source ~/.dotfiles/.functions.sh
+>>>>>>> 35520061747d6f93c2116979669fd0957493eb57
