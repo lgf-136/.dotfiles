@@ -13,7 +13,7 @@ pacman -S --needed filesystem msys2-runtime bash libreadline libiconv libarchive
 pacman -S mingw-w64-x86_64-toolchain
 pacman -S mingw-w64-i686-toolchain
 pacman -S base-devel
-pacman -S vim
+pacman -S vim emacs nnn
 
 # https://github.com/zellij-org/zellij
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -25,13 +25,12 @@ pacman -S vim
 
 mkdir - p ~/.cargo
 # vim ~/.cargo/config
-cat>~/.cargo/config<<EOF
+cat >~/.cargo/config <<EOF
 [source.crates-io]
 replace-with = "tuna"
 [source.tuna]
 registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 EOF
 该镜像可加快 cargo 读取软件包索引的速度。
-
 
 cargo install lsd sd fd-find broot bottom gping du-dust git-delta zellij
