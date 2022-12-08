@@ -116,4 +116,3 @@ source ~/.dotfiles/.alias.sh
 
 #---------------------------FUNCTIONS---------------------------------
 source ~/.dotfiles/.functions.sh
->>>>>>> 35520061747d6f93c2116979669fd0957493eb57
