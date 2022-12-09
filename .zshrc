@@ -111,3 +111,14 @@ source ~/.dotfiles/.alias.sh
 
 #---------------------------FUNCTIONS---------------------------------
 source ~/.dotfiles/.functions.sh
+
+# >>> conda initialize >>>
+# error on msys2 or cygwin: https://github.com/conda/conda/issues/9922
+# $(echo '/cygdrive/c/Users/karp/anaconda3/Scripts/conda.exe' | tr -d '\r')
+# $(echo '/d/dev-env/Anaconda3/Scripts/conda.exe' | tr -d '\r')
+# !! Contents within this block are managed by 'conda init' !!
+if [ -f '/d/dev-env/Anaconda3/Scripts/conda.exe' ]; then
+  # eval "$('/d/dev-env/Anaconda3/Scripts/conda.exe' 'shell.zsh' 'hook')"
+  source /d/dev-env/Anaconda3/etc/profile.d/conda.sh
+fi
+# <<< conda initialize <<<
