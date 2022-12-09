@@ -58,7 +58,7 @@ ln -s -f ~/.dotfiles/.bashrc  ~/.bashrc
 "C:\Users\lgf\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
 rm -f /c/Users/lgf/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
-ln  /c/Users/lgf/.dotfiles/powershell/PowerShell/Microsoft.PowerShell_profile.ps1 /c/Users/lgf/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+ln   /c/Users/lgf/.dotfiles/powershell/PowerShell/Microsoft.PowerShell_profile.ps1 /c/Users/lgf/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
 
 rm -f /c/Users/lgf/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 ln  /c/Users/lgf/.dotfiles/powershell/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 /c/Users/lgf/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1

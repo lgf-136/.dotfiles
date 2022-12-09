@@ -83,6 +83,10 @@ si() {
 
 }
 
+go_proxy() {
+  go env -w GO111MODULE=on
+  go env -w GOPROXY=https://goproxy.cn
+}
 gg_init() {
   git config --global user.name "lgf"
   git config --global user.email "1366256652@qq.com"
