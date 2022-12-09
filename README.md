@@ -63,7 +63,8 @@ ln   /c/Users/lgf/.dotfiles/powershell/PowerShell/Microsoft.PowerShell_profile.p
 rm -f /c/Users/lgf/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 ln  /c/Users/lgf/.dotfiles/powershell/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 /c/Users/lgf/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 
-
+rm -f /c/Users/lgf/.cargo/config
+ln  /c/Users/lgf/.dotfiles/.cargo/config /c/Users/lgf/.cargo/config
 ```
 
 
