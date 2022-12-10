@@ -1,7 +1,7 @@
 [init]
 	defaultBranch = main
 [safe]
-    directory = /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+	directory = /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
 	directory = /home/lgf/code
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
@@ -10,9 +10,11 @@
 	clean = git-lfs clean -- %f
 [http]
 	sslverify = false
+[https]
+	sslverify = false
 [user]
-    name = lgf
-    email = lgf_136@163.com
+	name = lgf
+	email = lgf_136@163.com
 [core]
 	autocrlf = false
 	quotepath = false
@@ -29,11 +31,11 @@
 	unstage = reset --soft HEAD^
 	cm = commit -m
 	amend = commit --amend -m
-	fix = commit --fixup
+	# fix = commit --fixup
 	undo = reset HEAD~1
 	rv = revert
 	cp = cherry-pick
-	pu = !git push origin `git branch --show-current`
+	pu = !git push origin $(git branch --show-current)
 	fush = push -f
 	mg = merge --no-ff
 	rb = rebase
@@ -64,4 +66,4 @@
 	# CHORE.
 	chore = "!f() { git cap \"📌 chore: $@\"; }; f"
 [pull]
-	rebase = true
+	rebase = false

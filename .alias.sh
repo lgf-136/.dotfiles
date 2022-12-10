@@ -19,6 +19,7 @@ alias gcm="git commit -m"
 alias gcam="git add . && git commit -m"
 alias gco="git checkout"
 alias gcob="git checkout -b"
+alias gcp="git cherry-pick"
 alias gcom="git checkout main"
 alias gst="git status"
 alias ginit='git init && git config --local core.autocrlf false'
