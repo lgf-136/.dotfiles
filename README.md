@@ -109,8 +109,13 @@ git config --global https.sslverify false
 git config --global pull.rebase false
 git config --global core.quotepath false
 
+# msys2 不能使用自带的git 进行push 操作
+rm -f ~/.gitconfig /c/Users/lgf/.gitconfig
+ln ~/.dotfiles/.gitconfig ~/.gitconfig
+ln /c/Users/lgf/.dotfiles/.gitconfig /c/Users/lgf/.gitconfig
 
 git  clone git@github.com:lgf-136/.dotfiles.git ~/.dotfiles
+git clone git@gitee.com:lgf1244/dotfiles  /c/Users/lgf/.dotfiles
 rm -f ~/.zshrc ~/.bashrc
 ln -s -f ~/.dotfiles/.zshrc  ~/.zshrc
 ln -s -f ~/.dotfiles/.bashrc  ~/.bashrc

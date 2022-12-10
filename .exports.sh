@@ -15,7 +15,9 @@ if [ "${distribution}" = "msys2" ]; then
   export GOPATH=/d/dev-env/Go/go
   export CARGO_HOME=/c/Users/lgf/.cargo
   export RUSTUP_HOME=/c/Users/lgf/.rustup
-  export PATH=/d/dev-env/Anaconda3:/d/dev-env/Anaconda3/Scripts:/d/dev-env/Anaconda3/Library/mingw-w64/bin:/d/dev-env/Anaconda3/Library/usr/bin:/d/dev-env/Anaconda3/Library/bin
+  # msys2 不能使用自带的git 进行push 操作
+  export PATH="/c/Program Files/Git:/c/Program Files/Git/bin:/c/Program Files/Git LFS"
+  export PATH=$PATH:/d/dev-env/Anaconda3:/d/dev-env/Anaconda3/Scripts:/d/dev-env/Anaconda3/Library/mingw-w64/bin:/d/dev-env/Anaconda3/Library/usr/bin:/d/dev-env/Anaconda3/Library/bin
   export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/gVimPortable/App/vim
   export PATH=$PATH:/mingw64/bin:/clang64/bin:/clangarm64/bin:/ucrt64/bin
   export PATH=$PATH:/mingw32/bin:/clang32/bin
@@ -30,6 +32,6 @@ if [[ $A == *$B* ]]; then
   export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 fi
 
-export PATH=$PATH:/home/lgf/.local/bin:$GOROOT/bin:$GOPATH/bin:$CARGO_HOME/bin
+export PATH=$PATH:~/.local/bin:~/.local/share:/usr/local/share:/usr/share:$GOROOT/bin:$GOPATH/bin:$CARGO_HOME/bin
 export PYENV_ROOR="$HOME/.pyenv"
 export PATH=~/.pyenv/libexec:$PATH
